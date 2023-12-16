@@ -11,7 +11,7 @@ Roles: (fill out stuff you wanna do)
   - Audio Designer:
   - Audio Implementer:
 - Art
-  - Player Designer:
-  - GameObject Designer:
-  - TileSet Designer:
-  - UI Designer:
+  - Player Designer: shah he
+  - GameObject Designer: sah ehe
+  - TileSet Designer:   h sae
+  - UI Designer:   sah he h
