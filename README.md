@@ -6,6 +6,7 @@ Roles: (fill out stuff you wanna do)
   - GameObject Designer:
   - Level Play Designer:
   - Level Look Designer:
+  - UI/Menu Designer:
 - Audio
   - Audio Designer:
   - Audio Implementer:
@@ -13,3 +14,4 @@ Roles: (fill out stuff you wanna do)
   - Player Designer:
   - GameObject Designer:
   - TileSet Designer:
+  - UI Designer:
