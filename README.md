@@ -8,8 +8,8 @@ Roles: (fill out stuff you wanna do)
   - Level Look Designer:Alvin
   - UI/Menu Designer:
 - Audio
-  - Audio Designer:
-  - Audio Implementer:
+  - Audio Designer: thohmoas  
+  - Audio Implementer: also probably tthomas
 - Art
   - Player Designer: shah he
   - GameObject Designer: sah ehe
