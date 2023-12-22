@@ -2,7 +2,7 @@
 
 Roles: (fill out stuff you wanna do)
 - Coding/Unity Stuff
-  - Player Designer:
+  - Player & Dialogue? Designer:
   - GameObject Designer:
   - Level Play Designer:Alvin
   - Level Look Designer:Alvin
