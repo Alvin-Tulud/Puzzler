@@ -2,11 +2,11 @@
 
 Roles: (fill out stuff you wanna do)
 - Coding/Unity Stuff
-  - Player & Dialogue? Designer:
+  - Player & Dialogue? Designer: priluck
   - GameObject Designer: Andewndrew
   - Level Play Designer:Alvin
   - Level Look Designer:Alvin
-  - UI/Menu Designer:
+  - UI/Menu Designer: 
 - Audio
   - Audio Designer: thohmoas  
   - Audio Implementer: also probably tthomas
