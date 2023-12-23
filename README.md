@@ -3,7 +3,7 @@
 Roles: (fill out stuff you wanna do)
 - Coding/Unity Stuff
   - Player & Dialogue? Designer:
-  - GameObject Designer:
+  - GameObject Designer: Andewndrew
   - Level Play Designer:Alvin
   - Level Look Designer:Alvin
   - UI/Menu Designer:
