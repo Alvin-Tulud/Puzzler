@@ -31,7 +31,7 @@ public class Belt_Move : MonoBehaviour
 
                 time++;
             }
-            else //stop moving ball
+            else //stop moving ball //null so it stops acting on that ball
             {
                 thingMoving = null;
                 time = 0;
