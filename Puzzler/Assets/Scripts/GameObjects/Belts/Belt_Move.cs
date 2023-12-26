@@ -17,7 +17,7 @@ public class Belt_Move : MonoBehaviour
     void Start()
     {
         transformBelt = this.gameObject.GetComponent<Transform>();
-        directionBelt = transform.right.z;
+        directionBelt = transform.rotation.z;
     }
 
     // Update is called once per frame
@@ -28,13 +28,12 @@ public class Belt_Move : MonoBehaviour
             thingMoving.rotation = Quaternion.Euler(0f, 0f, directionBelt);
             if (time <= speedBelt)
             {
-                thingMovingCurrentPosition.x = Mathf.Lerp(thingMovingInitialPosition.x, transformBelt.right.x, time / speedBelt);
-                thingMovingCurrentPosition.y = Mathf.Lerp(thingMovingInitialPosition.y, transformBelt.right.y, time / speedBelt);
+                thingMovingCurrentPosition.x = Mathf.Lerp(thingMovingInitialPosition.x, transformBelt.right.x + transformBelt.position.x, time / speedBelt);
+                thingMovingCurrentPosition.y = Mathf.Lerp(thingMovingInitialPosition.y, transformBelt.right.y + transformBelt.position.y, time / speedBelt);
 
                 thingMoving.position = new Vector3(thingMovingCurrentPosition.x, thingMovingCurrentPosition.y, 0f);
 
                 time++;
-                Debug.Log("(" + thingMovingCurrentPosition.x + ", " + thingMovingCurrentPosition.y + ") " + time);
             }
             else //stop moving ball
             {
@@ -50,7 +49,6 @@ public class Belt_Move : MonoBehaviour
         {
             thingMoving = collision.transform;
             thingMovingInitialPosition = collision.transform.position;
-            Debug.Log(collision.tag);
         }
     }
 }
