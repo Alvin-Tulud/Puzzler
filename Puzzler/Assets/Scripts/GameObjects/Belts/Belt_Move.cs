@@ -6,26 +6,22 @@ using UnityEngine;
 public class Belt_Move : MonoBehaviour
 {
     private Transform   transformBelt;
-    private float       directionBelt;
 
     private Transform   thingMoving;
     private Vector3     thingMovingInitialPosition;
     private Vector3     thingMovingCurrentPosition;
     public  int         speedBelt;
     private float       time;
-    // Start is called before the first frame update
+
     void Start()
     {
         transformBelt = this.gameObject.GetComponent<Transform>();
-        directionBelt = transform.rotation.z;
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
-        if (thingMoving != null) // check if ball on belt
+        if (thingMoving != null) // check if ball stored
         {
-            thingMoving.rotation = Quaternion.Euler(0f, 0f, directionBelt);
             if (time <= speedBelt)
             {
                 thingMovingCurrentPosition.x = Mathf.Lerp(thingMovingInitialPosition.x, transformBelt.right.x + transformBelt.position.x, time / speedBelt);
@@ -43,7 +39,7 @@ public class Belt_Move : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision) // detect ball on belt //do something so it doesnt fuck up with multiple balls on same belt
     {
         if (collision.CompareTag("Ball"))
         {
