@@ -86,8 +86,8 @@ GameObject:
   - component: {fileID: 4474211656417114896}
   - component: {fileID: 2104635647185408707}
   - component: {fileID: 7401446379785924729}
-  - component: {fileID: 2840410221575667304}
   - component: {fileID: 9137125350487969472}
+  - component: {fileID: 7850219453225533540}
   m_Layer: 6
   m_Name: Belt_TurnBased
   m_TagString: Belt
@@ -208,19 +208,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.01}
   m_EdgeRadius: 0
---- !u!114 &2840410221575667304
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3660337661463857958}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee416e311ab819640b4f623df1e2e4d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speedBelt: 10
 --- !u!50 &9137125350487969472
 Rigidbody2D:
   serializedVersion: 4
@@ -248,6 +235,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &7850219453225533540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3660337661463857958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d9d98c680aa5c942a7a805797b6bba3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7070935060071735710
 GameObject:
   m_ObjectHideFlags: 0
