@@ -16,6 +16,8 @@ public class Belt_Move : MonoBehaviour
     void Start()
     {
         transformBelt = this.gameObject.GetComponent<Transform>();
+        Debug.Log("lois");
+
     }
 
     void FixedUpdate()
