@@ -5,38 +5,45 @@ using UnityEngine;
 
 public class Belt_Move : MonoBehaviour
 {
-    private Transform   transformBelt;
+    private Transform       transformBelt;
 
-    private Transform   thingMoving;
-    private Vector3     thingMovingInitialPosition;
-    private Vector3     thingMovingCurrentPosition;
-    public  int         speedBelt;
-    private float       time;
+    private List<Transform> thingsMoving;
+    private List<Vector3>   thingsMovingInitialPosition;
+    private Vector3         thingMovingCurrentPosition;
+    public  int             speedBelt;
+    private List<float>     times;
+    private bool            spotfound;
 
     void Start()
     {
         transformBelt = this.gameObject.GetComponent<Transform>();
-        Debug.Log("lois");
 
+        thingsMoving = new List<Transform>();
+        thingsMovingInitialPosition = new List<Vector3>();
+        times = new List<float>();
+
+        spotfound = false;
     }
 
     void FixedUpdate()
     {
-        if (thingMoving != null) // check if ball stored
+        for (int i = 0; i < thingsMoving.Count; i++)
         {
-            if (time <= speedBelt)
+            Transform t = thingsMoving[i];
+            if (t != null && times[i] <= speedBelt) //check if ball is stored and if the timer on it isn't maxxed
             {
-                thingMovingCurrentPosition.x = Mathf.Lerp(thingMovingInitialPosition.x, transformBelt.right.x + transformBelt.position.x, time / speedBelt);
-                thingMovingCurrentPosition.y = Mathf.Lerp(thingMovingInitialPosition.y, transformBelt.right.y + transformBelt.position.y, time / speedBelt);
+                thingMovingCurrentPosition.x = Mathf.Lerp(thingsMovingInitialPosition[i].x, transformBelt.right.x + transformBelt.position.x, times[i] / speedBelt);
+                thingMovingCurrentPosition.y = Mathf.Lerp(thingsMovingInitialPosition[i].y, transformBelt.right.y + transformBelt.position.y, times[i] / speedBelt);
 
-                thingMoving.position = new Vector3(thingMovingCurrentPosition.x, thingMovingCurrentPosition.y, 0f);
+                thingsMoving[i].position = new Vector3(thingMovingCurrentPosition.x, thingMovingCurrentPosition.y, 0f);
 
-                time++;
+                times[i]++;
             }
-            else //stop moving ball //null so it stops acting on that ball
+            else
             {
-                thingMoving = null;
-                time = 0;
+                thingsMoving[i] = null;
+                thingsMovingInitialPosition[i] = Vector3.zero;
+                times[i] = 0;
             }
         }
     }
@@ -45,8 +52,28 @@ public class Belt_Move : MonoBehaviour
     {
         if (collision.CompareTag("Ball"))
         {
-            thingMoving = collision.transform;
-            thingMovingInitialPosition = collision.transform.position;
+            collision.transform.rotation = transformBelt.rotation; //rotate ball to be same facing as the belt
+            for (int i = 0; i < thingsMoving.Count; i++)
+            {
+                Transform t = thingsMoving[i];
+                if (t == null)//if found empty spot change bool to yes and set it to that spot and reset the timer attached at same index and get the initial position of it
+                {
+                    thingsMoving[i] = collision.transform;
+                    thingsMovingInitialPosition[i] = collision.transform.position;
+                    times[i] = 0;
+                    spotfound = true;
+                    break;//breaks when it finds a free space
+                }
+            }
+
+            if (!spotfound)//if no spot add it to the end and add another time var  
+            {
+                thingsMoving.Add(collision.transform);
+                thingsMovingInitialPosition.Add(collision.transform.position);
+                times.Add(0);
+            }
+
+            spotfound = false; //reset to default
         }
     }
 }
