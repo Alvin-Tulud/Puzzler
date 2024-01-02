@@ -8,13 +8,18 @@ using FMODUnity;
 
 public class AudioTest : MonoBehaviour
 {
+    public bool playMusic = true;
     FMOD.Studio.EventInstance musicEvent;
     // Start is called before the first frame update
     void Start()
     {
-        musicEvent = RuntimeManager.CreateInstance("event:/MUSIC/TestMusic");
-        musicEvent.start();
-        musicEvent.release();
+        if (playMusic)
+        {
+            musicEvent = RuntimeManager.CreateInstance("event:/MUSIC/TestMusic");
+            musicEvent.start();
+            musicEvent.release();
+        }
+
     }
 
     // Update is called once per frame
