@@ -15,4 +15,13 @@ public class Goal_Check : MonoBehaviour
     {
         
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Ball"))
+        {
+            //idk store the stuff then check it somewhere figure out how the goal stuff is gonna work later
+
+        }
+    }
 }
