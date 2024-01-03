@@ -25,7 +25,6 @@ public class Ball_TurnBased : MonoBehaviour
         if(collidedObj != null)
         {
             collidedObj.GetComponent<Tile_Interface>().TurnMove(); //Triggers tile move
-            //wait
 
             collidedObj.GetComponent<Tile_Interface>().TurnEffect(); //Triggers tile effect
         }
