@@ -16,14 +16,14 @@ public class Belt_Move_TurnBased : MonoBehaviour, Tile_Interface
         
     }
 
-    public void TurnPart1()
+    public void TurnMove()
     {
-        Debug.Log("Belt part 1");
+        Debug.Log("Belt moves ball");
     }
 
-    public void TurnPart2()
+    public void TurnEffect() //Belts have no effect
     {
-        Debug.Log("Belt part 2");
+        Debug.Log("Belt effect (none)");
     }
 
 }

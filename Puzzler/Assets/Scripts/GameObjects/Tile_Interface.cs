@@ -4,6 +4,6 @@ using UnityEngine;
 
 public interface Tile_Interface
 {
-    public void TurnPart1();
-    public void TurnPart2();
+    public void TurnMove(); //MOVEMENT
+    public void TurnEffect(); //EFFECT ON BALL
 }

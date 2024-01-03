@@ -24,20 +24,26 @@ public class Ball_TurnBased : MonoBehaviour
         Debug.Log("ball will do its part");
         if(collidedObj != null)
         {
-            //collidedObj.Invoke(""); interface
-            collidedObj.GetComponent<Tile_Interface>().TurnPart1();
-        }
+            collidedObj.GetComponent<Tile_Interface>().TurnMove(); //Triggers tile move
+            //wait
 
+            collidedObj.GetComponent<Tile_Interface>().TurnEffect(); //Triggers tile effect
+        }
+        else //Should only trigger when the ball lands on the floor?
+        {
+
+        }
+        collidedObj = null;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == 6)
+        if (collision.gameObject.layer == 6) //6 is belt layer
         {
             collidedObj = collision.gameObject;
         }
 
-        else
+        else //Edge case for if the ball collides with something other than a tile, might be extra tho
         {
             Debug.Log("LOSER"); //Presumably this only triggers when balls bump into each other meaning you LOSE!
         }
