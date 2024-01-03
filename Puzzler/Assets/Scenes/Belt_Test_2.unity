@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 228475744}
   - component: {fileID: 228475743}
   m_Layer: 7
-  m_Name: Circle (1)
+  m_Name: Ball (1)
   m_TagString: Ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -617,7 +617,7 @@ GameObject:
   - component: {fileID: 1961926198}
   - component: {fileID: 1961926200}
   m_Layer: 7
-  m_Name: Circle
+  m_Name: Ball
   m_TagString: Ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
