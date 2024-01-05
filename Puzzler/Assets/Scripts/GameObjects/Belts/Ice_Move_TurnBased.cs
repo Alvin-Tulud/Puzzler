@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Belt_Move_TurnBased : MonoBehaviour, Tile_Interface
+public class Ice_Move_TurnBased : MonoBehaviour, Tile_Interface
 {
-    private Transform transformBelt;
+    private Transform transformIce;
 
     private List<Transform> thingsMoving;
     private List<Vector3> thingsMovingInitialPosition;
     private Vector3 thingMovingCurrentPosition;
-    public int speedBelt;
+    public int speedIce;
     private float time;
     private bool spotfound;
 
@@ -17,7 +17,7 @@ public class Belt_Move_TurnBased : MonoBehaviour, Tile_Interface
     // Start is called before the first frame update
     void Start()
     {
-        transformBelt = this.gameObject.GetComponent<Transform>();
+        transformIce = this.gameObject.GetComponent<Transform>();
 
         thingsMoving = new List<Transform>();
         thingsMovingInitialPosition = new List<Vector3>();
@@ -31,15 +31,15 @@ public class Belt_Move_TurnBased : MonoBehaviour, Tile_Interface
 
         time = 0f;
 
-        while (time <= speedBelt)
+        while (time <= speedIce)
         {
             for (int i = 0; i < thingsMoving.Count; i++)
             {
                 Transform t = thingsMoving[i];
                 if (t != null) //check if ball is stored and if the timer on it isn't maxxed
                 {
-                    thingMovingCurrentPosition.x = Mathf.Lerp(thingsMovingInitialPosition[i].x, transformBelt.right.x + transformBelt.position.x, time / speedBelt);
-                    thingMovingCurrentPosition.y = Mathf.Lerp(thingsMovingInitialPosition[i].y, transformBelt.right.y + transformBelt.position.y, time / speedBelt);
+                    thingMovingCurrentPosition.x = Mathf.Lerp(thingsMovingInitialPosition[i].x, t.right.x + transformIce.position.x, time / speedIce);
+                    thingMovingCurrentPosition.y = Mathf.Lerp(thingsMovingInitialPosition[i].y, t.right.y + transformIce.position.y, time / speedIce);
 
                     thingsMoving[i].position = new Vector3(thingMovingCurrentPosition.x, thingMovingCurrentPosition.y, 0f);
                 }
@@ -58,20 +58,19 @@ public class Belt_Move_TurnBased : MonoBehaviour, Tile_Interface
 
     public void TurnMove()
     {
-        Debug.Log("Belt moves ball");
+        Debug.Log("Ice moves ball");
         StartCoroutine(moveThing());
     }
 
     public void TurnEffect() //Belts have no effect
     {
-        Debug.Log("Belt effect (none)");
+        Debug.Log("Ice effect (none)");
     }
 
     private void OnTriggerEnter2D(Collider2D collision) // detect ball on belt //do something so it doesnt fuck up with multiple balls on same belt
     {
         if (collision.CompareTag("Ball"))
         {
-            collision.transform.rotation = transformBelt.rotation; //rotate ball to be same facing as the belt
             for (int i = 0; i < thingsMoving.Count; i++)
             {
                 Transform t = thingsMoving[i];
