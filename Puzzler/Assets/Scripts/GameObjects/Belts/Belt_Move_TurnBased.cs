@@ -10,7 +10,7 @@ public class Belt_Move_TurnBased : MonoBehaviour, Tile_Interface
     private List<Vector3> thingsMovingInitialPosition;
     private Vector3 thingMovingCurrentPosition;
     public int speedBelt;
-    private List<float> times;
+    private float time;
     private bool spotfound;
 
 
@@ -21,57 +21,45 @@ public class Belt_Move_TurnBased : MonoBehaviour, Tile_Interface
 
         thingsMoving = new List<Transform>();
         thingsMovingInitialPosition = new List<Vector3>();
-        times = new List<float>();
 
         spotfound = false;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public IEnumerator moveThing()
     {
-        float initialTime = Time.fixedDeltaTime;
-        float currentTime = Time.fixedDeltaTime;
-        float tempDeltaTime = currentTime - initialTime;
-        //const float realInitialTime = initialTime;
+        this.gameObject.GetComponent<BoxCollider2D>().enabled = false;//turn off so it doesn't detect other balls while its running
 
-        foreach(Transform t in thingsMoving)
+        time = 0f;
+
+        while (time <= speedBelt)
         {
-            times[thingsMoving.IndexOf(t)] = currentTime;
+            for (int i = 0; i < thingsMoving.Count; i++)
+            {
+                Transform t = thingsMoving[i];
+                if (t != null) //check if ball is stored and if the timer on it isn't maxxed
+                {
+                    thingMovingCurrentPosition.x = Mathf.Lerp(thingsMovingInitialPosition[i].x, transformBelt.right.x + transformBelt.position.x, time / speedBelt);
+                    thingMovingCurrentPosition.y = Mathf.Lerp(thingsMovingInitialPosition[i].y, transformBelt.right.y + transformBelt.position.y, time / speedBelt);
+
+                    thingsMoving[i].position = new Vector3(thingMovingCurrentPosition.x, thingMovingCurrentPosition.y, 0f);
+                }
+            }
+            time += Time.fixedDeltaTime;
+
+            yield return null;
         }
 
-        for (int i = 0; i < thingsMoving.Count; i++)
-        {
-            Transform t = thingsMoving[i];
-            if (t != null && times[i] <= speedBelt) //check if ball is stored and if the timer on it isn't maxxed
-            {
-                thingMovingCurrentPosition.x = Mathf.Lerp(thingsMovingInitialPosition[i].x, transformBelt.right.x + transformBelt.position.x, times[i] / speedBelt);
-                thingMovingCurrentPosition.y = Mathf.Lerp(thingsMovingInitialPosition[i].y, transformBelt.right.y + transformBelt.position.y, times[i] / speedBelt);
+        thingsMoving.Clear();
 
-                thingsMoving[i].position = new Vector3(thingMovingCurrentPosition.x, thingMovingCurrentPosition.y, 0f);
+        this.gameObject.GetComponent<BoxCollider2D>().enabled = true;
 
-                times[i]++;
-            }
-            else
-            {
-                thingsMoving[i] = null;
-                thingsMovingInitialPosition[i] = Vector3.zero;
-                times[i] = 0;
-            }
-        }
-        return null;
+        yield return null;
     }
 
     public void TurnMove()
     {
         Debug.Log("Belt moves ball");
-        moveThing();
-
-
+        StartCoroutine(moveThing());
     }
 
     public void TurnEffect() //Belts have no effect
@@ -91,7 +79,6 @@ public class Belt_Move_TurnBased : MonoBehaviour, Tile_Interface
                 {
                     thingsMoving[i] = collision.transform;
                     thingsMovingInitialPosition[i] = collision.transform.position;
-                    times[i] = 0;
                     spotfound = true;
                     break;//breaks when it finds a free space
                 }
@@ -101,7 +88,6 @@ public class Belt_Move_TurnBased : MonoBehaviour, Tile_Interface
             {
                 thingsMoving.Add(collision.transform);
                 thingsMovingInitialPosition.Add(collision.transform.position);
-                times.Add(0);
             }
 
             spotfound = false; //reset to default

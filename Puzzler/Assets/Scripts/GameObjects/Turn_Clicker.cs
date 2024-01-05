@@ -6,7 +6,7 @@ public class Turn_Clicker : MonoBehaviour
 {
 
     public int turnCounter; //Counts the number of elapsed turns, updates to this tell the factory to move
-    GameObject[] balls;
+    public GameObject[] balls;
 
     // Start is called before the first frame update
     void Start()
