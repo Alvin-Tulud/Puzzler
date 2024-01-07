@@ -24,9 +24,9 @@ public class Ball_TurnBased : MonoBehaviour
         Debug.Log("ball will do its part");
         if(collidedObj != null)
         {
-            collidedObj.GetComponent<Tile_Interface>().TurnMove(); //Triggers tile move
-
             collidedObj.GetComponent<Tile_Interface>().TurnEffect(); //Triggers tile effect
+
+            collidedObj.GetComponent<Tile_Interface>().TurnMove(); //Triggers tile move
         }
         else //Should only trigger when the ball lands on the floor?
         {

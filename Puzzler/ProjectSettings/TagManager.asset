@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Ball
   - Belt
+  - Ice
+  - Blue_Modifier
+  - Green_Modifier
+  - Red_Modifier
   layers:
   - Default
   - TransparentFX

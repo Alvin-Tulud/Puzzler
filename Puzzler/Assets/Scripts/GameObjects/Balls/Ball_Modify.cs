@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Ball_Modify : MonoBehaviour
 {
-    List<string> modifications; 
+    public List<string> modifications; 
     // Start is called before the first frame update
     void Start()
     {

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Belt_Move_TurnBased : MonoBehaviour, Tile_Interface
+public class Color_Modifier_TurnBased : MonoBehaviour, Tile_Interface
 {
     private Transform transformBelt;
 
@@ -59,15 +59,42 @@ public class Belt_Move_TurnBased : MonoBehaviour, Tile_Interface
         yield return null;
     }
 
+    public IEnumerator turnColor()
+    {
+        string color;
+
+        switch (this.gameObject.tag)
+        {
+            case "Red_Modifier":
+                color = "red";
+                break;
+            case "Green_Modifier":
+                color = "green";
+                break;
+            case "Blue_Modifier":
+                color = "blue";
+                break;
+            default:
+                color = "";
+                break;
+
+        }
+        foreach(Transform t in thingsMoving)
+        {
+            t.GetComponent<Ball_Modify>().addMod(color);
+        }
+        yield return null;//take each transform and turn it red
+    }
+
     public void TurnMove()
     {
-        Debug.Log("Belt moves ball");
+        Debug.Log("Red_Modifier moves ball");
         StartCoroutine(moveThing());
     }
 
     public void TurnEffect() //Belts have no effect
     {
-        Debug.Log("Belt effect (none)");
+        StartCoroutine(turnColor());
     }
 
     private void OnTriggerEnter2D(Collider2D collision) // detect ball on belt //do something so it doesnt fuck up with multiple balls on same belt
