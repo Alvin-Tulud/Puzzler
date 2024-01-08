@@ -346,8 +346,8 @@ GameObject:
   - component: {fileID: 6202164411043952732}
   - component: {fileID: 5194164738746525363}
   m_Layer: 6
-  m_Name: Green_Modifier_TurnBased
-  m_TagString: Green_Modifier
+  m_Name: Yellow_Modifier_TurnBased
+  m_TagString: Yellow_Modifier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -536,7 +536,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

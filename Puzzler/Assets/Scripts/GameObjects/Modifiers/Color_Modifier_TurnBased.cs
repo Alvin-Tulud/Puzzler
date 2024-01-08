@@ -68,8 +68,8 @@ public class Color_Modifier_TurnBased : MonoBehaviour, Tile_Interface
             case "Red_Modifier":
                 color = "red";
                 break;
-            case "Green_Modifier":
-                color = "green";
+            case "Yellow_Modifier":
+                color = "yellow";
                 break;
             case "Blue_Modifier":
                 color = "blue";

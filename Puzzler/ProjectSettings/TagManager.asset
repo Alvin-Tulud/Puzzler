@@ -8,8 +8,8 @@ TagManager:
   - Belt
   - Ice
   - Blue_Modifier
-  - Green_Modifier
   - Red_Modifier
+  - Yellow_Modifier
   layers:
   - Default
   - TransparentFX
