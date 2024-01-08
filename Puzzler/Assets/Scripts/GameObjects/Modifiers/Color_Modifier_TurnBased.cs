@@ -38,6 +38,9 @@ public class Color_Modifier_TurnBased : MonoBehaviour, Tile_Interface
                 Transform t = thingsMoving[i];
 
                 t.transform.rotation = transformBelt.rotation; //rotate ball to be same facing as the belt
+                float angleX = t.rotation.x;
+
+                Debug.Log(angleX);
 
                 if (t != null) //check if ball is stored and if the timer on it isn't maxxed
                 {

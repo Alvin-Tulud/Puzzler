@@ -25,16 +25,19 @@ public class Tile_Movement_Parent : MonoBehaviour
             {
                 Transform t = thingsMoving[i];
 
+                var r = t;
+
                 if(!type.Equals("ice")) //if ice block, DONT reorient the ball so it keeps going in the same direction
                 {
                     t.transform.rotation = transformBelt.rotation; //rotate ball to be same facing as the belt
+                    r = transformBelt;
                 }
 
 
                 if (t != null) //check if ball is stored and if the timer on it isn't maxxed
                 {
-                    thingMovingCurrentPosition.x = Mathf.Lerp(thingsMovingInitialPosition[i].x, transformBelt.right.x + transformBelt.position.x, time / speedBelt);
-                    thingMovingCurrentPosition.y = Mathf.Lerp(thingsMovingInitialPosition[i].y, transformBelt.right.y + transformBelt.position.y, time / speedBelt);
+                    thingMovingCurrentPosition.x = Mathf.Lerp(thingsMovingInitialPosition[i].x, r.right.x + transformBelt.position.x, time / speedBelt);
+                    thingMovingCurrentPosition.y = Mathf.Lerp(thingsMovingInitialPosition[i].y, r.right.y + transformBelt.position.y, time / speedBelt);
 
                     thingsMoving[i].position = new Vector3(thingMovingCurrentPosition.x, thingMovingCurrentPosition.y, 0f);
                 }

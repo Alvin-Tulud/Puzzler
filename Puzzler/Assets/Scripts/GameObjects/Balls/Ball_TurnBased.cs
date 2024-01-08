@@ -21,7 +21,7 @@ public class Ball_TurnBased : MonoBehaviour
 
     public void DoTurn()
     {
-        Debug.Log("ball will do its part");
+        //Debug.Log("ball will do its part");
         if(collidedObj != null)
         {
             collidedObj.GetComponent<Tile_Interface>().TurnEffect(); //Triggers tile effect

@@ -21,7 +21,7 @@ public class Turn_Clicker : MonoBehaviour
     {
         if(Input.GetKeyDown("p"))
         {
-            Debug.Log("P pressed");
+            //Debug.Log("P pressed");
             DoTurn();
         }
         
