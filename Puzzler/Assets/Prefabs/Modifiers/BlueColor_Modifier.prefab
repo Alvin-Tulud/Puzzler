@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: 8030259324190511151}
   - component: {fileID: 2867212557044590337}
   m_Layer: 6
-  m_Name: Blue_Modifier_TurnBased
+  m_Name: BlueColor_Modifier
   m_TagString: Blue_Modifier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

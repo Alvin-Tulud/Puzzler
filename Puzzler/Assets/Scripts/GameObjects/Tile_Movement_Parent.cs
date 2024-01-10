@@ -33,7 +33,6 @@ public class Tile_Movement_Parent : MonoBehaviour
                     r = transformBelt;
                 }
 
-
                 if (t != null) //check if ball is stored and if the timer on it isn't maxxed
                 {
                     thingMovingCurrentPosition.x = Mathf.Lerp(thingsMovingInitialPosition[i].x, r.right.x + transformBelt.position.x, time / speedBelt);

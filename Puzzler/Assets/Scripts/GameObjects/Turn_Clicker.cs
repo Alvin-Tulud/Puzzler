@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class Turn_Clicker : MonoBehaviour
 {
-
     public int turnCounter; //Counts the number of elapsed turns, updates to this tell the factory to move
     public GameObject[] balls;
 
-    // Start is called before the first frame update
     void Start()
     {
         turnCounter = 0;
@@ -24,7 +22,6 @@ public class Turn_Clicker : MonoBehaviour
             //Debug.Log("P pressed");
             DoTurn();
         }
-        
     }
 
     //ADD A FIXED UPDATE
@@ -35,11 +32,9 @@ public class Turn_Clicker : MonoBehaviour
         //notify observers of the change
         Debug.Log("INCREMENTING, counter is now " + turnCounter);
 
-        
-
         foreach(GameObject ball in balls)
         {
-            ball.GetComponent<Ball_TurnBased>().DoTurn(); //ALL BALLS will do their turn
+            ball.GetComponent<Ball_TurnCheck>().DoTurn(); //ALL BALLS will do their turn
         }
 
     }

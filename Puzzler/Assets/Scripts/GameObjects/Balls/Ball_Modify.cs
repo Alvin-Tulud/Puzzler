@@ -6,12 +6,11 @@ using UnityEngine;
 public class Ball_Modify : MonoBehaviour
 {
     public List<string> modifications; 
-    // Start is called before the first frame update
+
     void Start()
     {
         modifications = new List<string>();
     }
-
     public void addMod(string mod)
     {
         if (modifications.Count < 4)
