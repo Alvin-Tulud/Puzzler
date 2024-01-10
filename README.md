@@ -6,7 +6,8 @@ Roles: (fill out stuff you wanna do)
   - GameObject Designer: Andewndrew
   - Level Play Designer:Alvin
   - Level Look Designer:Alvin
-  - UI/Menu Designer: 
+  - UI/Menu Designer:
+  - Documentation: hel shae
 - Audio
   - Audio Designer: thohmoas  
   - Audio Implementer: also probably tthomas
