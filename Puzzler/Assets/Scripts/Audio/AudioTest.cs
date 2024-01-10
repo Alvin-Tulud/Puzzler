@@ -8,12 +8,12 @@ using FMODUnity;
 
 public class AudioTest : MonoBehaviour
 {
-    public bool playMusic = true;
+    public bool playMusic = false;
     FMOD.Studio.EventInstance musicEvent;
     // Start is called before the first frame update
     void Start()
     {
-        if (playMusic)
+        if (playMusic == true)
         {
             musicEvent = RuntimeManager.CreateInstance("event:/MUSIC/TestMusic");
             musicEvent.start();
