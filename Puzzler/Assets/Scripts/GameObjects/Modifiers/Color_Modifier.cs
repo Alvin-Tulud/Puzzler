@@ -36,7 +36,7 @@ public class Color_Modifier : Tile_Movement_Parent , Tile_Interface
         }
         foreach(Transform t in thingsMoving)
         {
-            t.GetComponent<Ball_Modify>().addMod(color);
+            t.GetComponent<Ball_Modify>().addColorMod(color);
         }
         yield return null;//take each transform and turn it red
     }
