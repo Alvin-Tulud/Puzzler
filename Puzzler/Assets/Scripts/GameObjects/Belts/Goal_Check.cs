@@ -4,24 +4,22 @@ using UnityEngine;
 
 public class Goal_Check : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public List<string> Goal_Colors = new List<string>(4);
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Ball"))
         {
-            //idk store the stuff then check it somewhere figure out how the goal stuff is gonna work later
-
+            if (collision.GetComponent<Ball_Modify>().getColorMod().Equals(Goal_Colors))
+            {
+                Debug.Log("you suck");
+            }
+            else
+            {
+                Debug.Log("a match");
+            }
         }
     }
+
+    public List<string> getGoalColors() { return Goal_Colors; }
 }
