@@ -267,6 +267,7 @@ GameObject:
   - component: {fileID: 3915658653365099757}
   - component: {fileID: 8030259324190511151}
   - component: {fileID: 2867212557044590337}
+  - component: {fileID: -4628101682976760062}
   m_Layer: 6
   m_Name: BlueColor_Modifier
   m_TagString: Blue_Modifier
@@ -399,7 +400,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcfa90af9517d6c49be1c30b691b4162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedBelt: 10
+--- !u!114 &-4628101682976760062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6092648531300384883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8b96f458170389469f7ee224c73be1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDraggable: 1
 --- !u!1 &7263948166348051160
 GameObject:
   m_ObjectHideFlags: 0

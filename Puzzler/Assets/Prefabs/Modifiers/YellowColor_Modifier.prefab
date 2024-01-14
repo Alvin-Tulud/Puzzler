@@ -267,6 +267,7 @@ GameObject:
   - component: {fileID: 4239454952942950120}
   - component: {fileID: 6202164411043952732}
   - component: {fileID: 5194164738746525363}
+  - component: {fileID: 8219034452369571304}
   m_Layer: 6
   m_Name: YellowColor_Modifier
   m_TagString: Yellow_Modifier
@@ -399,7 +400,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcfa90af9517d6c49be1c30b691b4162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedBelt: 10
+--- !u!114 &8219034452369571304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2804144354679410508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8b96f458170389469f7ee224c73be1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDraggable: 1
 --- !u!1 &7405033936324592731
 GameObject:
   m_ObjectHideFlags: 0
