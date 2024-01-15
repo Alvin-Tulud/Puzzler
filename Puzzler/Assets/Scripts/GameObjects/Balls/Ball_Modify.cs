@@ -16,6 +16,11 @@ public class Ball_Modify : MonoBehaviour
         cold = false;
     }
 
+    private void Update()//junk code just makes sure the thing stays upright i hope it works
+    {
+        transform.rotation = Quaternion.Euler(0,0,0);
+    }
+
     //-------------- Color things-------------------------------------------
     public void addColorMod(string mod)
     {

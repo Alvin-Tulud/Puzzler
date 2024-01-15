@@ -44,12 +44,19 @@ public class Draggable : MonoBehaviour
             {
                 transform.Rotate(0, 0, -90);
             }
-
         }
         if (Input.GetMouseButtonUp(0))
         {
             canMove = false;
             dragging = false;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.IsTouchingLayers(6))
+        {
+            Debug.Log("ontop");
         }
     }
 }

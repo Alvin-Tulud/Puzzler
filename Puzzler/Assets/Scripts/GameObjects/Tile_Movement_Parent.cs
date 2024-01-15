@@ -15,7 +15,7 @@ public class Tile_Movement_Parent : MonoBehaviour
 
     public IEnumerator moveThing(string type = "belt")
     {
-        this.gameObject.GetComponent<BoxCollider2D>().enabled = false;//turn off so it doesn't detect other balls while its running
+        this.gameObject.GetComponent<CircleCollider2D>().enabled = false;//turn off so it doesn't detect other balls while its running
 
         time = 0f;
 
@@ -48,13 +48,14 @@ public class Tile_Movement_Parent : MonoBehaviour
 
         thingsMoving.Clear();
 
-        this.gameObject.GetComponent<BoxCollider2D>().enabled = true;
+        this.gameObject.GetComponent<CircleCollider2D>().enabled = true;
 
         yield return null;
     }
 
     private void OnTriggerEnter2D(Collider2D collision) // detect ball on belt //do something so it doesnt fuck up with multiple balls on same belt
     {
+        Debug.Log("t");
         if (collision.CompareTag("Ball"))
         {
             for (int i = 0; i < thingsMoving.Count; i++)

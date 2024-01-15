@@ -85,9 +85,7 @@ GameObject:
   m_Component:
   - component: {fileID: 313082137793741806}
   - component: {fileID: 8637560511809262800}
-  - component: {fileID: 6241734285743982925}
   - component: {fileID: 5027860667811357535}
-  - component: {fileID: 2097210958681995231}
   - component: {fileID: 9012626715396732487}
   m_Layer: 6
   m_Name: Ice_Belt
@@ -164,51 +162,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &6241734285743982925
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2056025009777826191}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.96, y: 0.96}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!114 &5027860667811357535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,19 +174,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d72805b1955316947b7f94680ab34744, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2097210958681995231
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2056025009777826191}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8b96f458170389469f7ee224c73be1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerMovable: 1
 --- !u!58 &9012626715396732487
 CircleCollider2D:
   m_ObjectHideFlags: 0
