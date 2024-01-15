@@ -3,37 +3,57 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using Unity.VisualScripting;
 
-public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class Draggable : MonoBehaviour 
 {
-    public bool isDraggable;
-    private bool isMoving;
-    public void OnBeginDrag(PointerEventData eventData)
+    private bool canMove;
+    private bool dragging;
+    private Collider2D collider;
+    void Start()
     {
-        Debug.Log("start drag");
-        isMoving = true;
+        collider = GetComponent<Collider2D>();
+        canMove = false;
+        dragging = false;
     }
 
-    public void OnDrag(PointerEventData eventData)
+    void OnMouseOver()
     {
-        Debug.Log("drag");
-        if (isDraggable)
-        {
-            transform.position = new Vector3(Mathf.Round(Input.mousePosition.x), Mathf.Round(Input.mousePosition.y), 0);
-        }
-    }
-
-    public void OnEndDrag(PointerEventData eventData)
-    {
-        Debug.Log("end drag");
-        isMoving = false;
+        print(gameObject.name);
     }
 
     private void Update()
     {
-        if (isMoving && Input.GetKeyDown("r"))
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        if (Input.GetMouseButtonDown(0))
         {
-            transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, transform.rotation.z - 90);
+            if (collider == Physics2D.OverlapPoint(mousePos))
+            {
+                canMove = true;
+            }
+            else
+            {
+                canMove = false;
+            }
+            if (canMove)
+            {
+                dragging = true;
+            }
+        }
+        if (dragging)
+        {
+            this.transform.position = new Vector3(Mathf.Round(mousePos.x), Mathf.Round(mousePos.y), 0);
+
+            if (Input.GetKeyDown("r"))
+            {
+                transform.Rotate(0, 0, -90);
+            }
+
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            canMove = false;
+            dragging = false;
         }
     }
 }

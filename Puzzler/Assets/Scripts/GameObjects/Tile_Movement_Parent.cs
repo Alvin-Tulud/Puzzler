@@ -35,8 +35,8 @@ public class Tile_Movement_Parent : MonoBehaviour
 
                 if (t != null) //check if ball is stored and if the timer on it isn't maxxed
                 {
-                    thingMovingCurrentPosition.x = Mathf.Lerp(thingsMovingInitialPosition[i].x, r.right.x + transformBelt.position.x, time / speedBelt);
-                    thingMovingCurrentPosition.y = Mathf.Lerp(thingsMovingInitialPosition[i].y, r.right.y + transformBelt.position.y, time / speedBelt);
+                    Vector3 right = new Vector3(Mathf.Round(r.right.x), Mathf.Round(r.right.y), 0);
+                    thingMovingCurrentPosition = Vector3.Lerp(thingsMovingInitialPosition[i], right + transformBelt.position, time / speedBelt);
 
                     thingsMoving[i].position = new Vector3(thingMovingCurrentPosition.x, thingMovingCurrentPosition.y, 0f);
                 }
