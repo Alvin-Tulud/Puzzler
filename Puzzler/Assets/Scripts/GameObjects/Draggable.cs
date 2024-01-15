@@ -7,6 +7,7 @@ using Unity.VisualScripting;
 
 public class Draggable : MonoBehaviour 
 {
+    public bool playerMovable;
     private bool canMove;
     private bool dragging;
     private Collider2D collider;
@@ -17,17 +18,12 @@ public class Draggable : MonoBehaviour
         dragging = false;
     }
 
-    void OnMouseOver()
+    private void Update()// code taken from here https://generalistprogrammer.com/game-design-development/unity-drag-and-drop-tutorial/
     {
-        print(gameObject.name);
-    }
-
-    private void Update()
-    {
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);//doesn't work for some reason when i try to simplify it
         if (Input.GetMouseButtonDown(0))
         {
-            if (collider == Physics2D.OverlapPoint(mousePos))
+            if (playerMovable && collider == Physics2D.OverlapPoint(mousePos))//figure out how to make it so the tiles cant be placed on eachother
             {
                 canMove = true;
             }

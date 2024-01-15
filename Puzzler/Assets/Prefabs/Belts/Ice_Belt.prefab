@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 6241734285743982925}
   - component: {fileID: 5027860667811357535}
   - component: {fileID: 2097210958681995231}
+  - component: {fileID: 9012626715396732487}
   m_Layer: 6
   m_Name: Ice_Belt
   m_TagString: Ice
@@ -192,7 +193,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -206,7 +207,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.01, y: 0.01}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &5027860667811357535
 MonoBehaviour:
@@ -232,7 +233,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8b96f458170389469f7ee224c73be1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDraggable: 1
+  playerMovable: 1
+--- !u!58 &9012626715396732487
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2056025009777826191}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.01
 --- !u!1 &2220822430182719523
 GameObject:
   m_ObjectHideFlags: 0

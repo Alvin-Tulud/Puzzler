@@ -268,6 +268,7 @@ GameObject:
   - component: {fileID: 8030259324190511151}
   - component: {fileID: 2867212557044590337}
   - component: {fileID: -4628101682976760062}
+  - component: {fileID: 6447701087696470637}
   m_Layer: 6
   m_Name: BlueColor_Modifier
   m_TagString: Blue_Modifier
@@ -372,7 +373,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -386,7 +387,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.01, y: 0.01}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &2867212557044590337
 MonoBehaviour:
@@ -412,7 +413,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8b96f458170389469f7ee224c73be1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDraggable: 1
+  playerMovable: 1
+--- !u!58 &6447701087696470637
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6092648531300384883}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.01
 --- !u!1 &7263948166348051160
 GameObject:
   m_ObjectHideFlags: 0
