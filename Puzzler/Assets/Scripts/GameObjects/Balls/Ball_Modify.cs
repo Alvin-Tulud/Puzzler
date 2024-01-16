@@ -45,6 +45,8 @@ public class Ball_Modify : MonoBehaviour
     }
 
     public void isCold()//flip flop
+
+
     {
         cold = true;
         hot = false;
