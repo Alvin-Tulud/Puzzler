@@ -1,9 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.EventSystems;
-using Unity.VisualScripting;
 
 public class Draggable : MonoBehaviour 
 {
@@ -11,8 +6,10 @@ public class Draggable : MonoBehaviour
     private bool canMove;
     private bool dragging;
     private Collider2D collider;
-    public GameObject DragTarget;
-    public GameObject TargetChecker;
+    public GameObject SpawnDragTarget;
+    public GameObject SpawnTargetChecker;
+    private GameObject DragTarget;
+    private GameObject TargetChecker;
     private bool touchingFactoryTile;
     //private bool collidingWithFloor;   //NOT sure if we even want colliders with the floor, placeholder for when we implement floor tiles
     void Start()
@@ -30,8 +27,14 @@ public class Draggable : MonoBehaviour
             if (playerMovable && collider == Physics2D.OverlapPoint(mousePos))//figure out how to make it so the tiles cant be placed on eachother
             {
                 canMove = true;
-                Instantiate(DragTarget, transform.position, transform.rotation); //Creates DragTarget
-                Instantiate(TargetChecker, transform.position, transform.rotation); //Creates TargetChecker
+                GameObject g;//store as gameobject and set them to be 
+                Debug.Log(transform.position);
+                g = Instantiate(SpawnDragTarget, Vector3.zero, transform.rotation); //Creates DragTarget
+                g.transform.SetParent(transform, false);//Alvin: changed transform.position to vector3.zero because it wasn't instantiating in the middle of the draggable object
+                DragTarget = g;
+                g = Instantiate(SpawnTargetChecker, Vector3.zero, transform.rotation); //Creates TargetChecker
+                g.transform.SetParent(transform, false);
+                TargetChecker = g;
 
                 //need to initialize collision logic for targetchecker here
             }
@@ -65,12 +68,11 @@ public class Draggable : MonoBehaviour
             TargetChecker_Script checkerScript = TargetChecker.GetComponent<TargetChecker_Script>();
             touchingFactoryTile = checkerScript.BoolCheck(); //determines true/false based on the targetChecker's script
 
-            if(touchingFactoryTile == true)
-            {
+            if(touchingFactoryTile)//Alvin: try raycast instead to check instead of using colliders 
+            {//Alvin: https://stackoverflow.com/questions/41676879/unity-physics-raycast-does-not-seem-to-properly-detect-object-it-hit
+                Debug.Log("touch");
                 DragTarget.transform.position = TargetChecker.transform.position;
             }
-
-
 
             if (Input.GetKeyDown("r"))
             {
@@ -83,9 +85,19 @@ public class Draggable : MonoBehaviour
             dragging = false;
             //place the dragged tile at target location
             //destroy target and targetChecker
-
-            this.transform.position = DragTarget.transform.position;
-
+            try
+            {
+                this.transform.position = DragTarget.transform.position;// fix this later so it snaps to grid
+            }
+            catch(System.Exception e)
+            {
+                //fuck it
+            }
+        }
+        if (!canMove && !dragging)
+        {
+            Destroy(DragTarget);
+            Destroy(TargetChecker);
         }
     }
 
