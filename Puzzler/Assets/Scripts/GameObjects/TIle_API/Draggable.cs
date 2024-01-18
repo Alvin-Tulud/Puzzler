@@ -38,6 +38,16 @@ public class Draggable : MonoBehaviour
         }
         if (dragging)
         {
+            //create DragTarget object - visual representation of landing position
+            //create TargetChecker object - hidden validity checker for DragTarget
+            //Check if rounded position is safe: 
+            //1. Round TargetChecker's position: TargetChecker.transform.position = new Vector3(Mathf.Round(mousePos.x), Mathf.Round(mousePos.y), 0);
+            //2. Check if TargetChecker's position is valid:
+            //2a: MUST be above a floor space (TBA)
+            //2b: Must NOT be colliding with a belt
+            //3. If the above are true, Set DragTarget's position to TargetChecker's
+            //
+
             this.transform.position = new Vector3(Mathf.Round(mousePos.x), Mathf.Round(mousePos.y), 0);
 
             if (Input.GetKeyDown("r"))
