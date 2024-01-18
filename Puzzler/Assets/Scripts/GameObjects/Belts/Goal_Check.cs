@@ -21,7 +21,7 @@ public class Goal_Check : MonoBehaviour, Tile_Interface
         if (collision.CompareTag("Ball"))
         {
             Debug.Log(Goal_Colors);
-            if (!collision.GetComponent<Ball_Modify>().getColorMod().Equals(Goal_Colors))
+            if (!collision.GetComponent<Ball_Modify>().getColorModList().Equals(Goal_Colors))
             {
                 Debug.Log("you suck");
             }

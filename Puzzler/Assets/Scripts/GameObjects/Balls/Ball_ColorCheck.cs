@@ -11,9 +11,9 @@ public class Ball_ColorCheck : MonoBehaviour
 
     void Update()
     {
-        for (int i = 0; i < Ball_Modify.getColorMod().Count; i++)
+        for (int i = 0; i < 4; i++)
         {
-            switch (Ball_Modify.getColorMod()[i])//red,yellow,blue,green,orange,purple,brown,grey, white, pink, light yellow, light blue
+            switch (Ball_Modify.getColorModList()[i])//red,yellow,blue,green,orange,purple,brown,grey, white, pink, light yellow, light blue
             {
                 case "red":
                     Layer_Color = new Color32(255, 0, 0, 255);
@@ -50,6 +50,9 @@ public class Ball_ColorCheck : MonoBehaviour
                     break;
                 case "light blue":
                     Layer_Color = new Color32(0, 255, 255, 255);
+                    break;
+                case null:
+                    Layer_Color = new Color32(0, 0, 0, 0);
                     break;
                 default:
                     Layer_Color = new Color32(0, 0, 0, 0);

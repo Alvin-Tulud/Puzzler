@@ -37,15 +37,20 @@ public class Color_Modifier : Tile_Movement_Parent , Tile_Interface
         
         foreach(Transform t in thingsMoving)
         {
-            t.GetComponent<Ball_Modify>().addColorMod(color);
-            Debug.Log(color);
+            for (int i = 0; i < 4 ; i++)
+            {
+                if (t.GetComponent<Ball_Modify>().getColorModList()[i].Length == 0)
+                {
+                    t.GetComponent<Ball_Modify>().setColorMod(i, color);
+                    break;
+                }
+            }
         }
         yield return null;//take each transform and turn it red
     }
 
     public void TurnMove()
     {
-        Debug.Log("Red_Modifier moves ball");
         StartCoroutine(moveThing());
     }
 

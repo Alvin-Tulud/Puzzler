@@ -289,7 +289,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4342306509283652092, guid: 7ee2c9764ea073449816da483a3215e7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 4342306509283652092, guid: 7ee2c9764ea073449816da483a3215e7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -384,6 +384,10 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6382042946941899653, guid: a45461b7895da6942aa8b091544bc3f8, type: 3}
+      propertyPath: Color_Modifications.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6482475880825766635, guid: a45461b7895da6942aa8b091544bc3f8, type: 3}
       propertyPath: m_Name
       value: Ball_Parent
@@ -412,11 +416,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7252625808581855070, guid: adc5a1d6a4443954dbfeb71b006733d3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7252625808581855070, guid: adc5a1d6a4443954dbfeb71b006733d3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 7252625808581855070, guid: adc5a1d6a4443954dbfeb71b006733d3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -428,15 +432,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7252625808581855070, guid: adc5a1d6a4443954dbfeb71b006733d3, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7252625808581855070, guid: adc5a1d6a4443954dbfeb71b006733d3, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7252625808581855070, guid: adc5a1d6a4443954dbfeb71b006733d3, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7252625808581855070, guid: adc5a1d6a4443954dbfeb71b006733d3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1071,7 +1075,7 @@ GameObject:
   - component: {fileID: 1812090031}
   - component: {fileID: 1812090030}
   - component: {fileID: 1812090029}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Siphon_Modifier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1086,14 +1090,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1812090027}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1586882468}
   m_Father: {fileID: 843864866}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!58 &1812090029
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1123,7 +1127,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

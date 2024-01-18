@@ -5,25 +5,22 @@ using UnityEngine;
 
 public class Ball_Modify : MonoBehaviour
 {
-    public List<string> Color_Modifications;
+    public List<string> Color_Modifications = new List<string>(4);
     public bool hot;
     public bool cold;
 
     void Start()
     {
-        Color_Modifications = new List<string>();
+        for (int i = 0; i < Color_Modifications.Count; i++)
+        {
+            Color_Modifications[i] = "";
+        }
+
         hot = false;
         cold = false;
     }
 
     //-------------- Color things-------------------------------------------
-    public void addColorMod(string mod)
-    {
-        if (Color_Modifications.Count < 4)
-        {
-            Color_Modifications.Add(mod);
-        }
-    }
     public void setColorMod(int index, string mod)//changes modification on set index
     {
         Color_Modifications[index] = mod;
@@ -34,7 +31,7 @@ public class Ball_Modify : MonoBehaviour
         this.Color_Modifications = Color_Modifications;
     }
 
-    public List<string> getColorMod() { return Color_Modifications; }//returns lists to check for win condition
+    public List<string> getColorModList() { return Color_Modifications; }//returns lists to check for win condition
 
     //------------------temperature stuff-----------------------------------------
 
