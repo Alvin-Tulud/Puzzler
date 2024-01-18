@@ -13,7 +13,7 @@ public class Draggable : MonoBehaviour
     private Collider2D collider;
     public GameObject DragTarget;
     public GameObject TargetChecker;
-    private Collision collidingWithFactoryTile;
+    private bool touchingFactoryTile;
     //private bool collidingWithFloor;   //NOT sure if we even want colliders with the floor, placeholder for when we implement floor tiles
     void Start()
     {
@@ -25,7 +25,7 @@ public class Draggable : MonoBehaviour
     private void Update()// code taken from here https://generalistprogrammer.com/game-design-development/unity-drag-and-drop-tutorial/
     {
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);//doesn't work for some reason when i try to simplify it
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0)) //on click down
         {
             if (playerMovable && collider == Physics2D.OverlapPoint(mousePos))//figure out how to make it so the tiles cant be placed on eachother
             {
@@ -44,7 +44,7 @@ public class Draggable : MonoBehaviour
                 dragging = true;
             }
         }
-        if (dragging)
+        if (dragging) //while dragging
         {
             //create DragTarget object - visual representation of landing position
             //create TargetChecker object - hidden validity checker for DragTarget
@@ -64,15 +64,20 @@ public class Draggable : MonoBehaviour
 
 
 
+
+
             if (Input.GetKeyDown("r"))
             {
                 transform.Rotate(0, 0, -90);
             }
         }
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0)) //when letting go
         {
             canMove = false;
             dragging = false;
+            //place the dragged tile at target location
+            //destroy target and targetChecker
+
         }
     }
 
