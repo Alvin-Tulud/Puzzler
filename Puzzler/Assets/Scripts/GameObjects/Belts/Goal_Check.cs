@@ -5,6 +5,7 @@ using UnityEngine;
 public class Goal_Check : MonoBehaviour, Tile_Interface
 {
     public List<string> Goal_Colors = new List<string>(4);
+    private bool isRight;
 
     public void TurnMove()
     {
@@ -20,14 +21,22 @@ public class Goal_Check : MonoBehaviour, Tile_Interface
     {
         if (collision.CompareTag("Ball"))
         {
-            Debug.Log(Goal_Colors);
-            if (!collision.GetComponent<Ball_Modify>().getColorModList().Equals(Goal_Colors))
+            isRight = true;
+            for (int i = 0; i < Goal_Colors.Count; i++)
             {
-                Debug.Log("you suck");
+                if (collision.GetComponent<Ball_Modify>().getColorModList()[i] != Goal_Colors[i])
+                {
+                    isRight = false;
+                    break;
+                }
+            }
+            if (isRight)
+            {
+                Debug.Log("a match");
             }
             else
             {
-                Debug.Log("a match");
+                Debug.Log("not a match");
             }
         }
     }
