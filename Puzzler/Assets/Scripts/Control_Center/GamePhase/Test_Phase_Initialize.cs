@@ -20,6 +20,28 @@ public class Test_Phase_Initialize : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(testStart && !ballsSpawned)
+        {
+            clicker.enabled = true;
+            ballsSpawned = true;
+
+            foreach (GameObject g in spawners)
+            {
+                g.GetComponent<Spawner_Start>().TurnEffect();
+            }
+        }
         
+        if (!testStart)
+        {
+            clicker.enabled = false;
+            ballsSpawned = false;
+
+            foreach(GameObject g in spawners)
+            {
+                g.GetComponent<Spawner_Start>().setIsSpawned(false);
+            }
+        }
     }
+
+    public void state(bool state) { testStart = state; }
 }

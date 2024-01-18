@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class Build_Phase_Initialize : MonoBehaviour
 {
@@ -17,6 +18,21 @@ public class Build_Phase_Initialize : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (!buildStart)
+        {
+            foreach(GameObject g in draggable)
+            {
+                g.GetComponent<Draggable>().enabled = false;
+            }
+        }
+        else if (buildStart)
+        {
+            foreach(GameObject g in draggable)
+            {
+                g.GetComponent<Draggable>().enabled = true;
+            }
+        }
     }
+
+    public void state(bool state) { buildStart = state; }
 }
