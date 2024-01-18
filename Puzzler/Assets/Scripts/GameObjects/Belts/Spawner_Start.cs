@@ -21,7 +21,6 @@ public class Spawner_Start : Tile_Movement_Parent, Tile_Interface
 
     public void TurnMove()
     {
-        Debug.Log("Belt moves ball");
         StartCoroutine(moveThing());
     }
     public void TurnEffect()

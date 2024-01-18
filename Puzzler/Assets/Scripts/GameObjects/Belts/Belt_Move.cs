@@ -16,13 +16,12 @@ public class Belt_Move : Tile_Movement_Parent, Tile_Interface
 
     public void TurnMove()
     {
-        Debug.Log("Belt moves ball");
         StartCoroutine(moveThing());
     }
 
     public void TurnEffect() //Belts have no effect
     {
-        Debug.Log("Belt effect (none)");
+        
     }
 
 }

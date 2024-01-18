@@ -16,12 +16,11 @@ public class Ice_Move : Tile_Movement_Parent, Tile_Interface
 
     public void TurnMove()
     {
-        Debug.Log("Ice moves ball");
         StartCoroutine(moveThing("ice"));
     }
 
     public void TurnEffect() //Belts have no effect
     {
-        Debug.Log("Ice effect (none)");
+        
     }
 }

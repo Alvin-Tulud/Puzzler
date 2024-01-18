@@ -9,12 +9,12 @@ public class Goal_Check : MonoBehaviour, Tile_Interface
 
     public void TurnMove()
     {
-        Debug.Log("do nothing");
+        
     }
 
     public void TurnEffect() //Belts have no effect
     {
-        Debug.Log("do nothing");
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
