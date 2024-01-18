@@ -54,7 +54,6 @@ public class Draggable : MonoBehaviour
             //2a: MUST be above a floor space (TBA)
             //2b: Must NOT be colliding with a belt
             //3. If the above are true, Set DragTarget's position to TargetChecker's
-
             //this.transform.position = new Vector3(Mathf.Round(mousePos.x), Mathf.Round(mousePos.y), 0);
             
             this.transform.position = new Vector3(mousePos.x, mousePos.y, 0); //moves tile to mouse pos
@@ -62,7 +61,14 @@ public class Draggable : MonoBehaviour
             TargetChecker.transform.position = new Vector3(Mathf.Round(mousePos.x), Mathf.Round(mousePos.y), 0); //Moves TargetChecker and rounds its pos to the tile grid
             //Debug.Log(TargetChecker.transform.position); Apparently it's moving even though it looks like it isn't?
 
+            //move target to checker's position if it's valid
+            TargetChecker_Script checkerScript = TargetChecker.GetComponent<TargetChecker_Script>();
+            touchingFactoryTile = checkerScript.BoolCheck(); //determines true/false based on the targetChecker's script
 
+            if(touchingFactoryTile == true)
+            {
+                DragTarget.transform.position = TargetChecker.transform.position;
+            }
 
 
 
@@ -77,6 +83,8 @@ public class Draggable : MonoBehaviour
             dragging = false;
             //place the dragged tile at target location
             //destroy target and targetChecker
+
+            this.transform.position = DragTarget.transform.position;
 
         }
     }

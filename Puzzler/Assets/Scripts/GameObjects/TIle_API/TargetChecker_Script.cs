@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class TargetChecker_Script : MonoBehaviour
 {
-    bool touchingFactoryTile;
+    private bool touchingFactoryTile;
 
     // Start is called before the first frame update
     void Start()
@@ -34,5 +34,10 @@ public class TargetChecker_Script : MonoBehaviour
     {
         //Debug.Log("");
         touchingFactoryTile = false;
+    }
+
+    public bool BoolCheck()
+    {
+        return touchingFactoryTile;
     }
 }
