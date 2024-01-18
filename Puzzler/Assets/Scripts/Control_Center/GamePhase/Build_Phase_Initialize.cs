@@ -5,7 +5,7 @@ using UnityEngine;
 public class Build_Phase_Initialize : MonoBehaviour
 {
     private bool buildStart;
-    public GameObject[] draggable;
+    private GameObject[] draggable;
     // Start is called before the first frame update
     void Start()
     {
