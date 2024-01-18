@@ -100,6 +100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMovable: 1
+  DragTarget: {fileID: 6204978669936751406, guid: 9e58c788ce00d3e46b497fd86ea9332f, type: 3}
+  TargetChecker: {fileID: 1199438708256968690, guid: 0e85b2d172f715e408660cc881e8ee30, type: 3}
 --- !u!61 &5235357139993555937
 BoxCollider2D:
   m_ObjectHideFlags: 0

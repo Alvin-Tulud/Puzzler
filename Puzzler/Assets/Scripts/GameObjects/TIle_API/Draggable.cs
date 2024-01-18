@@ -11,6 +11,10 @@ public class Draggable : MonoBehaviour
     private bool canMove;
     private bool dragging;
     private Collider2D collider;
+    public GameObject DragTarget;
+    public GameObject TargetChecker;
+    private Collision collidingWithFactoryTile;
+    //private bool collidingWithFloor;   //NOT sure if we even want colliders with the floor, placeholder for when we implement floor tiles
     void Start()
     {
         collider = GetComponent<Collider2D>();
@@ -26,6 +30,10 @@ public class Draggable : MonoBehaviour
             if (playerMovable && collider == Physics2D.OverlapPoint(mousePos))//figure out how to make it so the tiles cant be placed on eachother
             {
                 canMove = true;
+                Instantiate(DragTarget, transform.position, transform.rotation); //Creates DragTarget
+                Instantiate(TargetChecker, transform.position, transform.rotation); //Creates TargetChecker
+
+                //need to initialize collision logic for targetchecker here
             }
             else
             {
@@ -46,9 +54,15 @@ public class Draggable : MonoBehaviour
             //2a: MUST be above a floor space (TBA)
             //2b: Must NOT be colliding with a belt
             //3. If the above are true, Set DragTarget's position to TargetChecker's
-            //
 
-            this.transform.position = new Vector3(Mathf.Round(mousePos.x), Mathf.Round(mousePos.y), 0);
+            //this.transform.position = new Vector3(Mathf.Round(mousePos.x), Mathf.Round(mousePos.y), 0);
+            
+            this.transform.position = new Vector3(mousePos.x, mousePos.y, 0); //moves tile to mouse pos
+
+            TargetChecker.transform.position = new Vector3(Mathf.Round(mousePos.x), Mathf.Round(mousePos.y), 0); //Moves TargetChecker and rounds its pos to the tile grid
+            //Debug.Log(TargetChecker.transform.position); Apparently it's moving even though it looks like it isn't?
+
+
 
             if (Input.GetKeyDown("r"))
             {

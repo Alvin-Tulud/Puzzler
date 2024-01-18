@@ -3,7 +3,9 @@ guid: d8b96f458170389469f7ee224c73be1e
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - DragTarget: {fileID: 6204978669936751406, guid: 9e58c788ce00d3e46b497fd86ea9332f, type: 3}
+  - TargetChecker: {fileID: 1199438708256968690, guid: 0e85b2d172f715e408660cc881e8ee30, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
