@@ -93,9 +93,6 @@ public class Draggable : MonoBehaviour
             {
                 //fuck it
             }
-        }
-        if (!canMove && !dragging)
-        {
             Destroy(DragTarget);
             Destroy(TargetChecker);
         }
