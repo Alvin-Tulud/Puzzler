@@ -31,4 +31,6 @@ public class Spawner_Start : Tile_Movement_Parent, Tile_Interface
             isSpawned = true;
         }
     }
+
+    public void setIsSpawned(bool state) { isSpawned = state; }
 }
