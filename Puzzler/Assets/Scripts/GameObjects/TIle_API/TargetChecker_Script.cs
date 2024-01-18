@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TargetChecker_Script : MonoBehaviour
@@ -16,8 +17,8 @@ public class TargetChecker_Script : MonoBehaviour
         
     }
 
-    private void OnCollisionStay2D(Collision collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
-        
+        Debug.Log("");
     }
 }
