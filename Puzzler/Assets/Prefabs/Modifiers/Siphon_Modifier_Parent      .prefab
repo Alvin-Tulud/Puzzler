@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5327451712361835263}
   m_Layer: 8
   m_Name: 'Siphon_Modifier_Parent      '
-  m_TagString: Untagged
+  m_TagString: Draggable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

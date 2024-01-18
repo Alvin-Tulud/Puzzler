@@ -36,6 +36,5 @@ public class Turn_Clicker : MonoBehaviour
         {
             ball.GetComponent<Ball_TurnCheck>().DoTurn(); //ALL BALLS will do their turn
         }
-
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Goal_Check : MonoBehaviour, Tile_Interface
+public class Goal_End : MonoBehaviour, Tile_Interface
 {
     public List<string> Goal_Colors = new List<string>(4);
     private bool isRight;

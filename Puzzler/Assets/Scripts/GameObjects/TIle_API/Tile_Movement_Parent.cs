@@ -55,7 +55,6 @@ public class Tile_Movement_Parent : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision) // detect ball on belt //do something so it doesnt fuck up with multiple balls on same belt
     {
-        Debug.Log("t");
         if (collision.CompareTag("Ball"))
         {
             for (int i = 0; i < thingsMoving.Count; i++)

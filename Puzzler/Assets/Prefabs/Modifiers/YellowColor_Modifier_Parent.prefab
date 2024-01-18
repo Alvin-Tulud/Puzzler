@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5235357139993555937}
   m_Layer: 8
   m_Name: YellowColor_Modifier_Parent
-  m_TagString: Untagged
+  m_TagString: Draggable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
