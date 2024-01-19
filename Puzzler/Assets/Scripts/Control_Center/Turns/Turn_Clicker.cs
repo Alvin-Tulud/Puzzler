@@ -17,11 +17,11 @@ public class Turn_Clicker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown("p"))
-        {
-            //Debug.Log("P pressed");
-            DoTurn();
-        }
+        //if(Input.GetKeyDown("p"))
+        //{
+        //    //Debug.Log("P pressed");
+        //    DoTurn();
+        //}
     }
 
     //ADD A FIXED UPDATE

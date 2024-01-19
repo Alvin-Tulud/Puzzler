@@ -40,6 +40,10 @@ public class Test_Phase_Initialize : MonoBehaviour
             {
                 g.GetComponent<Spawner_Start>().setIsSpawned(false);
             }
+            foreach (GameObject g in GameObject.FindGameObjectsWithTag(""))
+            {
+                Destroy(g);
+            }
         }
     }
 
