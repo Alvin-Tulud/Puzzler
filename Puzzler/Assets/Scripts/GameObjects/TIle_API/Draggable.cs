@@ -10,7 +10,7 @@ public class Draggable : MonoBehaviour
     public GameObject SpawnTargetChecker;
     private GameObject DragTarget;
     private GameObject TargetChecker;
-    private bool touchingFactoryTile;
+    private Vector3 LastValidPosition;
     private LayerMask FactoryLayerMask;
     //private LayerMask FloorLayerMask; //Reenable this when we implement floor tiles
    
@@ -66,7 +66,6 @@ public class Draggable : MonoBehaviour
             this.transform.position = new Vector3(mousePos.x, mousePos.y, 0); //moves tile to mouse pos
 
             TargetChecker.transform.position = new Vector3(Mathf.Round(mousePos.x), Mathf.Round(mousePos.y), 0); //Moves TargetChecker and rounds its pos to the tile grid
-            //Debug.Log(TargetChecker.transform.position); Apparently it's moving even though it looks like it isn't?
 
             ////move target to checker's position if it's valid
             //TargetChecker_Script checkerScript = TargetChecker.GetComponent<TargetChecker_Script>();
@@ -88,8 +87,12 @@ public class Draggable : MonoBehaviour
                 {
                     //Debug.Log("Valid spot");
                     DragTarget.transform.position = TargetChecker.transform.position; //move DragTarget to the checker's spot if it is valid
+                    LastValidPosition = DragTarget.transform.position;
                 }
-
+            }
+            else //if the checker is in an invalid space:
+            {
+                DragTarget.transform.position = LastValidPosition;
             }
 
             this.gameObject.layer = oldLayer; //put tile back to its proper layer
