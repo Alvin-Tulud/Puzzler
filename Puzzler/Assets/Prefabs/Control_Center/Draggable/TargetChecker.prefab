@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3182405777284696636}
   - component: {fileID: 4950101056570564820}
-  - component: {fileID: 6825056330780488927}
   - component: {fileID: 4772025915826051113}
   m_Layer: 0
   m_Name: TargetChecker
@@ -86,18 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6825056330780488927
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1199438708256968690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c7d259d14c802a468d04e2addf87a20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!58 &4772025915826051113
 CircleCollider2D:
   m_ObjectHideFlags: 0
