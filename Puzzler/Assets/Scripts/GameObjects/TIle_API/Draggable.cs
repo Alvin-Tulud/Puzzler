@@ -53,23 +53,19 @@ public class Draggable : MonoBehaviour
         }
         if (dragging) //while dragging
         {
-            //create DragTarget object - visual representation of landing position
-            //create TargetChecker object - hidden validity checker for DragTarget
+            //DragTarget object - visual representation of landing position
+            //TargetChecker object - hidden validity checker for DragTarget
             //Check if rounded position is safe: 
             //1. Round TargetChecker's position: TargetChecker.transform.position = new Vector3(Mathf.Round(mousePos.x), Mathf.Round(mousePos.y), 0);
             //2. Check if TargetChecker's position is valid:
-            //2a: MUST be above a floor space (TBA)
+            //2a: MUST be above a floor space (TODO)
             //2b: Must NOT be colliding with a belt
             //3. If the above are true, Set DragTarget's position to TargetChecker's
-            //this.transform.position = new Vector3(Mathf.Round(mousePos.x), Mathf.Round(mousePos.y), 0);
+            //4. If checker's position is not valid, target should stay in place
             
             this.transform.position = new Vector3(mousePos.x, mousePos.y, 0); //moves tile to mouse pos
 
-            TargetChecker.transform.position = new Vector3(Mathf.Round(mousePos.x), Mathf.Round(mousePos.y), 0); //Moves TargetChecker and rounds its pos to the tile grid
-
-            ////move target to checker's position if it's valid
-            //TargetChecker_Script checkerScript = TargetChecker.GetComponent<TargetChecker_Script>();
-            //touchingFactoryTile = checkerScript.BoolCheck(); //determines true/false based on the targetChecker's script
+            TargetChecker.transform.position = new Vector3(Mathf.Round(mousePos.x), Mathf.Round(mousePos.y), 0); //1. Moves TargetChecker and rounds its pos to the tile grid
 
             //raycast check vvv
 
@@ -77,7 +73,7 @@ public class Draggable : MonoBehaviour
             int oldLayer = this.gameObject.layer;
             this.gameObject.layer = 2;
 
-            //TargetChecker's raycast that looks for factory tiles in the way
+            //2a. TargetChecker's raycast that looks for factory tiles in the way
             RaycastHit2D hit = Physics2D.Raycast(TargetChecker.transform.position, TargetChecker.transform.forward, 0.1f, FactoryLayerMask);
 
             if(!hit) //if none are found:
@@ -86,23 +82,16 @@ public class Draggable : MonoBehaviour
                 if(true) //REPLACE THIS WITH FLOOR CHECK LOGIC (another raycast?) LATER
                 {
                     //Debug.Log("Valid spot");
-                    DragTarget.transform.position = TargetChecker.transform.position; //move DragTarget to the checker's spot if it is valid
+                    DragTarget.transform.position = TargetChecker.transform.position; //3. move DragTarget to the checker's spot if it is valid
                     LastValidPosition = DragTarget.transform.position;
                 }
             }
             else //if the checker is in an invalid space:
             {
-                DragTarget.transform.position = LastValidPosition;
+                DragTarget.transform.position = LastValidPosition; //4. DragTarget stays in place
             }
 
             this.gameObject.layer = oldLayer; //put tile back to its proper layer
-
-
-            //if(touchingFactoryTile)//Alvin: try raycast instead to check instead of using colliders 
-            //{//Alvin: https://stackoverflow.com/questions/41676879/unity-physics-raycast-does-not-seem-to-properly-detect-object-it-hit
-            //    Debug.Log("touch");
-            //    DragTarget.transform.position = TargetChecker.transform.position;
-            //}
 
             if (Input.GetKeyDown("r"))
             {
