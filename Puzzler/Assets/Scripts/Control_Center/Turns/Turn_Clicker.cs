@@ -45,7 +45,7 @@ public class Turn_Clicker : MonoBehaviour
     {
         turnCounter++; //increment the counter
         //notify observers of the change
-        Debug.Log("INCREMENTING, counter is now " + turnCounter);
+        //Debug.Log("INCREMENTING, counter is now " + turnCounter);
 
         foreach(GameObject ball in balls)
         {
