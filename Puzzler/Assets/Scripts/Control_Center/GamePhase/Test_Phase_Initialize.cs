@@ -22,28 +22,28 @@ public class Test_Phase_Initialize : MonoBehaviour
     {
         if(testStart && !ballsSpawned)
         {
-            clicker.enabled = true;
-            ballsSpawned = true;
-
             foreach (GameObject g in spawners)
             {
                 g.GetComponent<Spawner_Start>().TurnEffect();
             }
+
+            clicker.enabled = true;
+            ballsSpawned = true;
         }
         
         if (!testStart)
         {
-            clicker.enabled = false;
-            ballsSpawned = false;
-
             foreach(GameObject g in spawners)
             {
                 g.GetComponent<Spawner_Start>().setIsSpawned(false);
             }
-            foreach (GameObject g in GameObject.FindGameObjectsWithTag(""))
+            foreach (GameObject g in GameObject.FindGameObjectsWithTag("Ball_Parent"))
             {
                 Destroy(g);
             }
+
+            clicker.enabled = false;
+            ballsSpawned = false;
         }
     }
 
