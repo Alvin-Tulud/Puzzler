@@ -7,20 +7,35 @@ public class Turn_Clicker : MonoBehaviour
     public int turnCounter; //Counts the number of elapsed turns, updates to this tell the factory to move
     public GameObject[] balls;
 
+    private int timer;
+    private int timerlimit;
+
     private void OnEnable()
     {
         turnCounter = 0;
         //Debug.Log("Turn counter initialized and set  to 0 STUPID FREAKING KEYBOARD");
         balls = GameObject.FindGameObjectsWithTag("Ball");
+        timer = 0;
+        timerlimit = 25;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown("p"))
+        //if(Input.GetKeyDown("p"))
+        //{
+        //    //Debug.Log("P pressed");
+        //    DoTurn();
+        //}
+    }
+
+    private void FixedUpdate()
+    {
+        timer++;
+        if(timer >= timerlimit)
         {
-            //Debug.Log("P pressed");
             DoTurn();
+            timer = 0;
         }
     }
 
@@ -30,7 +45,7 @@ public class Turn_Clicker : MonoBehaviour
     {
         turnCounter++; //increment the counter
         //notify observers of the change
-        Debug.Log("INCREMENTING, counter is now " + turnCounter);
+        //Debug.Log("INCREMENTING, counter is now " + turnCounter);
 
         foreach(GameObject ball in balls)
         {
