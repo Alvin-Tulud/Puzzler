@@ -11,12 +11,16 @@ public class Draggable : MonoBehaviour
     private GameObject DragTarget;
     private GameObject TargetChecker;
     private bool touchingFactoryTile;
-    //private bool collidingWithFloor;   //NOT sure if we even want colliders with the floor, placeholder for when we implement floor tiles
+    private LayerMask FactoryLayerMask;
+    //private LayerMask FloorLayerMask; //Reenable this when we implement floor tiles
+   
     void Start()
     {
         collider = GetComponent<Collider2D>();
         canMove = false;
         dragging = false;
+        FactoryLayerMask = 1 << 6; //belt layer (6)
+        //TODO add floor layer mask when it becomes applicable
     }
 
     private void Update()// code taken from here https://generalistprogrammer.com/game-design-development/unity-drag-and-drop-tutorial/
@@ -64,15 +68,38 @@ public class Draggable : MonoBehaviour
             TargetChecker.transform.position = new Vector3(Mathf.Round(mousePos.x), Mathf.Round(mousePos.y), 0); //Moves TargetChecker and rounds its pos to the tile grid
             //Debug.Log(TargetChecker.transform.position); Apparently it's moving even though it looks like it isn't?
 
-            //move target to checker's position if it's valid
-            TargetChecker_Script checkerScript = TargetChecker.GetComponent<TargetChecker_Script>();
-            touchingFactoryTile = checkerScript.BoolCheck(); //determines true/false based on the targetChecker's script
+            ////move target to checker's position if it's valid
+            //TargetChecker_Script checkerScript = TargetChecker.GetComponent<TargetChecker_Script>();
+            //touchingFactoryTile = checkerScript.BoolCheck(); //determines true/false based on the targetChecker's script
 
-            if(touchingFactoryTile)//Alvin: try raycast instead to check instead of using colliders 
-            {//Alvin: https://stackoverflow.com/questions/41676879/unity-physics-raycast-does-not-seem-to-properly-detect-object-it-hit
-                Debug.Log("touch");
-                DragTarget.transform.position = TargetChecker.transform.position;
+            //raycast check vvv
+
+            //Temporarily move tile layer to ignore raycast
+            int oldLayer = this.gameObject.layer;
+            this.gameObject.layer = 2;
+
+            //TargetChecker's raycast that looks for factory tiles in the way
+            RaycastHit2D hit = Physics2D.Raycast(TargetChecker.transform.position, TargetChecker.transform.forward, 0.1f, FactoryLayerMask);
+
+            if(!hit) //if none are found:
+            {
+                //check for a valid floor tile
+                if(true) //REPLACE THIS WITH FLOOR CHECK LOGIC (another raycast?) LATER
+                {
+                    //Debug.Log("Valid spot");
+                    DragTarget.transform.position = TargetChecker.transform.position; //move DragTarget to the checker's spot if it is valid
+                }
+
             }
+
+            this.gameObject.layer = oldLayer; //put tile back to its proper layer
+
+
+            //if(touchingFactoryTile)//Alvin: try raycast instead to check instead of using colliders 
+            //{//Alvin: https://stackoverflow.com/questions/41676879/unity-physics-raycast-does-not-seem-to-properly-detect-object-it-hit
+            //    Debug.Log("touch");
+            //    DragTarget.transform.position = TargetChecker.transform.position;
+            //}
 
             if (Input.GetKeyDown("r"))
             {
