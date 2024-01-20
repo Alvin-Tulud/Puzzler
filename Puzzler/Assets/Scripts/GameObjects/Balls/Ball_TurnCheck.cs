@@ -33,7 +33,7 @@ public class Ball_TurnCheck : MonoBehaviour
 
         else //Edge case for if the ball collides with something other than a tile, might be extra tho
         {
-            Debug.Log("LOSER"); //Presumably this only triggers when balls bump into each other meaning you LOSE!
+            //Debug.Log("LOSER"); //Presumably this only triggers when balls bump into each other meaning you LOSE!
         }
     }
 }

@@ -11,7 +11,8 @@ public class Draggable : MonoBehaviour
     private GameObject DragTarget;
     private GameObject TargetChecker;
     private Vector3 LastValidPosition;
-    private LayerMask FactoryLayerMask;
+    private LayerMask BeltLayerMask;
+    private LayerMask ValidTilelayerMask;
     //private LayerMask FloorLayerMask; //Reenable this when we implement floor tiles
    
     void Start()
@@ -19,7 +20,9 @@ public class Draggable : MonoBehaviour
         collider = GetComponent<Collider2D>();
         canMove = false;
         dragging = false;
-        FactoryLayerMask = 1 << 6; //belt layer (6)
+        //FactoryLayerMask = 1 << 6; //belt layer (6)
+        BeltLayerMask = 1 << 6 |1 << 8;
+        ValidTilelayerMask = 1 << 9;
         //TODO add floor layer mask when it becomes applicable
     }
 
@@ -32,7 +35,6 @@ public class Draggable : MonoBehaviour
             {
                 canMove = true;
                 GameObject g;//store as gameobject and set them to be 
-                Debug.Log(transform.position);
                 g = Instantiate(SpawnDragTarget, Vector3.zero, transform.rotation); //Creates DragTarget
                 g.transform.SetParent(transform, false);//Alvin: changed transform.position to vector3.zero because it wasn't instantiating in the middle of the draggable object
                 DragTarget = g;
@@ -74,14 +76,17 @@ public class Draggable : MonoBehaviour
             this.gameObject.layer = 2;
 
             //2a. TargetChecker's raycast that looks for factory tiles in the way
-            RaycastHit2D hit = Physics2D.Raycast(TargetChecker.transform.position, TargetChecker.transform.forward, 0.1f, FactoryLayerMask);
-
-            if(!hit) //if none are found:
+            RaycastHit2D notHitBelt = Physics2D.Raycast(TargetChecker.transform.position, TargetChecker.transform.forward, 0.1f, BeltLayerMask);
+            if(!notHitBelt) //if none are found:
             {
+                RaycastHit2D hitValidTile = Physics2D.Raycast(TargetChecker.transform.position, TargetChecker.transform.forward, 0.1f, ValidTilelayerMask);
                 //check for a valid floor tile
-                if(true) //REPLACE THIS WITH FLOOR CHECK LOGIC (another raycast?) LATER
+                if (!hitValidTile)
                 {
-                    //Debug.Log("Valid spot");
+                    DragTarget.transform.position = LastValidPosition; //4. DragTarget stays in place
+                }
+                else
+                {
                     DragTarget.transform.position = TargetChecker.transform.position; //3. move DragTarget to the checker's spot if it is valid
                     LastValidPosition = DragTarget.transform.position;
                 }
@@ -114,14 +119,6 @@ public class Draggable : MonoBehaviour
             }
             Destroy(DragTarget);
             Destroy(TargetChecker);
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.IsTouchingLayers(6))
-        {
-            Debug.Log("ontop");
         }
     }
 }
