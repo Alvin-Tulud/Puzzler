@@ -31,7 +31,7 @@ public class Draggable : MonoBehaviour
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);//doesn't work for some reason when i try to simplify it
         if (Input.GetMouseButtonDown(0)) //on click down
         {
-            if (playerMovable && collider == Physics2D.OverlapPoint(mousePos))//figure out how to make it so the tiles cant be placed on eachother
+            if (playerMovable && collider == Physics2D.OverlapPoint(mousePos, BeltLayerMask))//figure out how to make it so the tiles cant be placed on eachother
             {
                 canMove = true;
                 GameObject g;//store as gameobject and set them to be 

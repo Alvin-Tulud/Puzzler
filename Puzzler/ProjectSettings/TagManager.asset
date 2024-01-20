@@ -17,6 +17,7 @@ TagManager:
   - Ball_Parent
   - Valid_Tile
   - Siphon_Modifier
+  - Tile_Slot
   layers:
   - Default
   - TransparentFX
