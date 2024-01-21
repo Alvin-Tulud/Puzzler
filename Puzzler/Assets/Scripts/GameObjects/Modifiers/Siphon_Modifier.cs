@@ -18,7 +18,6 @@ public class Siphon_Modifier : Tile_Movement_Parent, Tile_Interface
     {//for each ball check if theres a liquid in it then check if there is take out the first layer that it finds
         foreach(Transform t in thingsMoving)
         {
-            List<string> tempColorsList = t.GetComponent<Ball_Modify>().getColorModList();
             for (int i = 3; i >= 0; i--)
             {
                 if (t.GetComponent<Ball_Modify>().getColorModList()[i].Length != 0)
