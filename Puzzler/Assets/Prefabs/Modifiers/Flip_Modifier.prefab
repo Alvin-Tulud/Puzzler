@@ -419,7 +419,7 @@ GameObject:
   - component: {fileID: 4719293547330132402}
   m_Layer: 6
   m_Name: Flip_Modifier
-  m_TagString: Untagged
+  m_TagString: Flip_Modifier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

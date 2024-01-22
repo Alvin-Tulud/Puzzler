@@ -32,7 +32,6 @@ public class Color_Modifier : Tile_Movement_Parent , Tile_Interface
             default:
                 color = "";
                 break;
-
         }
         
         foreach(Transform t in thingsMoving)
