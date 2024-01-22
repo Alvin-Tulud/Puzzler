@@ -405,11 +405,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2078715565954541767, guid: 61b689cb5e12e0f40932902884837bfa, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2078715565954541767, guid: 61b689cb5e12e0f40932902884837bfa, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2078715565954541767, guid: 61b689cb5e12e0f40932902884837bfa, type: 3}
       propertyPath: m_Color.r
@@ -426,6 +426,10 @@ PrefabInstance:
     - target: {fileID: 2091285811895403169, guid: 61b689cb5e12e0f40932902884837bfa, type: 3}
       propertyPath: m_Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6382042946941899653, guid: 61b689cb5e12e0f40932902884837bfa, type: 3}
+      propertyPath: hot
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6382042946941899653, guid: 61b689cb5e12e0f40932902884837bfa, type: 3}
       propertyPath: Color_Modifications.Array.data[0]
