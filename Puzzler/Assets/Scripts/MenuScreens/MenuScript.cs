@@ -35,4 +35,15 @@ public class menuScreen : MonoBehaviour
         //This method will switch the current scene to the end of the game.
         Application.Quit();
     }
+
+
+
+
+    //Starting from scene 4 is where all of the levels are loaded (starting at level 1)
+    public void gotoLevel(int levelNum)
+    {
+        //This method will switch the current scene to the main menu scene.
+        SceneManager.LoadScene(levelNum);
+    }
+
 }
