@@ -19,6 +19,7 @@ TagManager:
   - Siphon_Modifier
   - Tile_Slot
   - Flip_Modifier
+  - Flip_Belt
   layers:
   - Default
   - TransparentFX
