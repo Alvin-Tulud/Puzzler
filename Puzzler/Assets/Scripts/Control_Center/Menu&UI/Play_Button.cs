@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class Play_Button : MonoBehaviour
 {
-    public GameObject Test_Phase;
-    public GameObject Build_Phase;
+    private GameObject Test_Phase;
+    private GameObject Build_Phase;
 
     private bool clicked;
     // Start is called before the first frame update
