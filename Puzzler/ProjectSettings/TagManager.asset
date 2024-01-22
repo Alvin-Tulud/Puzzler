@@ -18,6 +18,7 @@ TagManager:
   - Valid_Tile
   - Siphon_Modifier
   - Tile_Slot
+  - Flip_Modifier
   layers:
   - Default
   - TransparentFX
