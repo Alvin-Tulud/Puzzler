@@ -20,6 +20,7 @@ TagManager:
   - Tile_Slot
   - Flip_Modifier
   - Flip_Belt
+  - Ball_Menu
   layers:
   - Default
   - TransparentFX
