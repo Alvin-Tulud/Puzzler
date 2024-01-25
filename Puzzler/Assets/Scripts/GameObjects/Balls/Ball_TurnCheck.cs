@@ -29,7 +29,9 @@ public class Ball_TurnCheck : MonoBehaviour
         if (collision.gameObject.layer == 6) //6 is belt layer
         {
             collidedObj = collision.gameObject;
+            Debug.Log(collidedObj.name);
         }
+
 
         else //Edge case for if the ball collides with something other than a tile, might be extra tho
         {

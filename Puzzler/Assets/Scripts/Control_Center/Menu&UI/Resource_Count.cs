@@ -23,6 +23,7 @@ public class Resource_Count : MonoBehaviour
         {
             GameObject g = Instantiate(Tile_To_Spawn, transform.position, transform.rotation);
             Tiles.Add(g);
+            g.name = Tile_To_Spawn.name + ": " + i;
             g.SetActive(false);
         }
         Tiles[0].SetActive(true);

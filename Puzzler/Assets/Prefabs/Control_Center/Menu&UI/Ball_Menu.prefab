@@ -588,7 +588,7 @@ GameObject:
   - component: {fileID: 7125184413424954146}
   m_Layer: 7
   m_Name: Ball_Menu
-  m_TagString: Ball_Parent
+  m_TagString: Ball_Menu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
