@@ -29,7 +29,6 @@ public class Ball_TurnCheck : MonoBehaviour
         if (collision.gameObject.layer == 6) //6 is belt layer
         {
             collidedObj = collision.gameObject;
-            Debug.Log(collidedObj.name);
         }
 
 

@@ -9,8 +9,6 @@ public class Spawner_Start : Tile_Movement_Parent, Tile_Interface
 
     void Start()
     {
-        transformBelt = this.gameObject.GetComponent<Transform>();
-
         thingsMoving = new List<Transform>();
         thingsMovingInitialPosition = new List<Vector3>();
 

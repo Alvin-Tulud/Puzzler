@@ -16,6 +16,7 @@ public class Tile_Movement_Parent : MonoBehaviour
     public IEnumerator moveThing(string type = "belt")
     {
         this.gameObject.GetComponent<CircleCollider2D>().enabled = false;//turn off so it doesn't detect other balls while its running
+        transformBelt = GetComponentInParent<Transform>();
 
         time = 0f;
 
@@ -36,7 +37,7 @@ public class Tile_Movement_Parent : MonoBehaviour
                 if (t != null) //check if ball is stored and if the timer on it isn't maxxed
                 {
                     Vector3 right = new Vector3(Mathf.Round(r.right.x), Mathf.Round(r.right.y), 0);
-                    thingMovingCurrentPosition = Vector3.Lerp(thingsMovingInitialPosition[i], right + transformBelt.position, time / speedBelt);
+                    thingMovingCurrentPosition = Vector3.Lerp(transformBelt.position, right + transformBelt.position, time / speedBelt);
 
                     thingsMoving[i].position = new Vector3(thingMovingCurrentPosition.x, thingMovingCurrentPosition.y, 0f);
                 }

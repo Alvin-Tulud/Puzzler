@@ -11,11 +11,6 @@ public class Ball_Modify : MonoBehaviour
 
     void Start()
     {
-        for (int i = 0; i < Color_Modifications.Count; i++)
-        {
-            Color_Modifications[i] = "";
-        }
-
         hot = false;
         cold = false;
     }
