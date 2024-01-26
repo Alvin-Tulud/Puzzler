@@ -8,6 +8,7 @@ public class Flip_Belt_Move : Tile_Movement_Parent, Tile_Interface
     // Start is called before the first frame update
     void Start()
     {
+        transformBelt = gameObject.GetComponentInParent<Transform>();
         thingsMoving = new List<Transform>();
         thingsMovingInitialPosition = new List<Vector3>();
 
