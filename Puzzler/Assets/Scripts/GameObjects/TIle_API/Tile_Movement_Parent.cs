@@ -9,7 +9,7 @@ public class Tile_Movement_Parent : MonoBehaviour
     protected List<Transform> thingsMoving;
     protected List<Vector3> thingsMovingInitialPosition;
     protected Vector3 thingMovingCurrentPosition;
-    public const int speedBelt = 3;
+    public const int speedBelt = 2;
     protected float time;
     protected bool spotfound;
 
