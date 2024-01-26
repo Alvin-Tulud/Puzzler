@@ -31,6 +31,16 @@ public class Play_Button : MonoBehaviour
         {
             Test_Phase.GetComponent<Test_Phase_Initialize>().state(false);//start build_phase
             Build_Phase.GetComponent<Build_Phase_Initialize>().state(true);
+
+            //Set the flipbelts back to original position
+            GameObject[] FlipBelts = GameObject.FindGameObjectsWithTag("Flip_Belt");
+            foreach(GameObject flipbelt in FlipBelts)
+            {
+                Flip_Belt_Move script = flipbelt.GetComponent<Flip_Belt_Move>();
+                script.RealignFlipBelt();
+            }
+
+
             Debug.Log("build");
             clicked = false;
         }
