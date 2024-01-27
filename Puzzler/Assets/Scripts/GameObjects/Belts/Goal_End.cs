@@ -35,12 +35,10 @@ public class Goal_End : MonoBehaviour, Tile_Interface
             if (isRight)
             {
                 checkBalls.Add(true);
-                Debug.Log("a match");
             }
             else
             {
                 checkBalls.Add(false);
-                Debug.Log("not a match");
             }
             balls_found++;
         }
