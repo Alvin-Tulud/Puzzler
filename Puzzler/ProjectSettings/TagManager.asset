@@ -21,6 +21,7 @@ TagManager:
   - Flip_Modifier
   - Flip_Belt
   - Ball_Menu
+  - WinScreen
   layers:
   - Default
   - TransparentFX
@@ -63,4 +64,7 @@ TagManager:
     locked: 0
   - name: Ball
     uniqueID: 3928902455
+    locked: 0
+  - name: Overlay
+    uniqueID: 1764050569
     locked: 0
