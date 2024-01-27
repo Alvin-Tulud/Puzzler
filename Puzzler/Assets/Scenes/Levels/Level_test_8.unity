@@ -932,6 +932,10 @@ PrefabInstance:
       propertyPath: Color_Modifications.Array.data[2]
       value: yellow
       objectReference: {fileID: 0}
+    - target: {fileID: 100035740169891744, guid: 9ee7a9c5acea2634f84f32b32edfce68, type: 3}
+      propertyPath: Color_Modifications.Array.data[3]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4768705151666791306, guid: 9ee7a9c5acea2634f84f32b32edfce68, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1
