@@ -1103,6 +1103,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 114395929098912990, guid: 7ee2c9764ea073449816da483a3215e7, type: 3}
+      propertyPath: number_of_balls
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114395929098912990, guid: 7ee2c9764ea073449816da483a3215e7, type: 3}
       propertyPath: Goal_Colors.Array.data[0]
       value: red
       objectReference: {fileID: 0}
