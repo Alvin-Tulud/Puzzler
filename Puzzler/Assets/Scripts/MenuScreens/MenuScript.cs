@@ -6,22 +6,22 @@ using UnityEngine.SceneManagement;
 //This entire script is mostly used to switch between scenes, and serves as a scene manager of sorts.
 public class menuScreen : MonoBehaviour
 {
-    public void goToGameSelect()
+    public void goToGameSelect(int world)
     {
         //This method will switch the current scene to the game selection screen.
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(world);
     }
 
     public void goToCredits()
     {
         //This method will switch the current scene to the credits scene.
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(8);
     }
 
     public void goToControls()
     {
         //This method will switch the current scene to the controls scene.
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(9);
     }
 
     public void goBackMenu()
