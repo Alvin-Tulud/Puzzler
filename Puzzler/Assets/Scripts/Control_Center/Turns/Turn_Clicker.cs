@@ -9,6 +9,7 @@ public class Turn_Clicker : MonoBehaviour
 
     private int timer;
     private int timerlimit;
+    private bool stopping; //True when stopping test phase, false normally
 
     private void OnEnable()
     {
@@ -17,6 +18,7 @@ public class Turn_Clicker : MonoBehaviour
         balls = GameObject.FindGameObjectsWithTag("Ball");
         timer = 0;
         timerlimit = 25;
+        stopping = false;
     }
 
     // Update is called once per frame
@@ -34,8 +36,19 @@ public class Turn_Clicker : MonoBehaviour
         timer++;
         if(timer >= timerlimit)
         {
-            DoTurn();
-            timer = 0;
+            if(stopping)
+            {
+                Play_Button PlayButton = GameObject.FindWithTag("Play_Button").GetComponent<Play_Button>();
+                PlayButton.StartBuildPhase();
+
+                stopping = false;
+            }
+            else
+            {
+                DoTurn();
+                timer = 0;
+            }
+            
         }
     }
 
@@ -52,4 +65,10 @@ public class Turn_Clicker : MonoBehaviour
             ball.GetComponent<Ball_TurnCheck>().DoTurn(); //ALL BALLS will do their turn
         }
     }
+
+    public void Stopping(bool stop)
+    {
+        stopping = stop;
+    }
 }
+
