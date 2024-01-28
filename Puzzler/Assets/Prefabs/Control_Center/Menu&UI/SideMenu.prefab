@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 6498733391829674073}
   - component: {fileID: 1540557279534166324}
   m_Layer: 5
-  m_Name: Back
+  m_Name: Reset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -232,8 +232,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1540557279534166324}
         m_TargetAssemblyTypeName: menuScreen, Assembly-CSharp
-        m_MethodName: goToGameSelect
-        m_Mode: 3
+        m_MethodName: resetLevel
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -266,7 +266,7 @@ GameObject:
   - component: {fileID: 7431313590569594747}
   - component: {fileID: 1447783707394823933}
   m_Layer: 5
-  m_Name: Back_Image
+  m_Name: Reset_Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -728,7 +728,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &7796068360641821429
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -36,7 +36,11 @@ public class menuScreen : MonoBehaviour
         Application.Quit();
     }
 
-
+    public void resetLevel()
+    {
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(currentSceneName);
+    }
 
 
     //Starting from scene 4 is where all of the levels are loaded (starting at level 1)
