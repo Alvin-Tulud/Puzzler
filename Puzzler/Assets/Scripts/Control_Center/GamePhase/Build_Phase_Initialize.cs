@@ -21,14 +21,14 @@ public class Build_Phase_Initialize : MonoBehaviour
         {
             foreach(GameObject g in draggable)
             {
-                g.GetComponent<Draggable>().state(false);
+                g.GetComponent<Draggable>().enabled = false;
             }
         }
         else if (buildStart)
         {
             foreach(GameObject g in draggable)
             {
-                g.GetComponent<Draggable>().state(true);
+                g.GetComponent<Draggable>().enabled = true;
             }
         }
     }

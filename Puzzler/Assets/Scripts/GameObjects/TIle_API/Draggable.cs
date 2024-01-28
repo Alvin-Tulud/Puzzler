@@ -3,7 +3,6 @@ using UnityEngine;
 public class Draggable : MonoBehaviour 
 {
     public bool playerMovable;
-    private bool buildPhase;
     private bool canMove;
     private bool dragging;
     private Collider2D collider;
@@ -18,7 +17,6 @@ public class Draggable : MonoBehaviour
    
     void Start()
     {
-        buildPhase = true;
         collider = GetComponent<Collider2D>();
         canMove = false;
         dragging = false;
@@ -31,7 +29,7 @@ public class Draggable : MonoBehaviour
     private void Update()// code taken from here https://generalistprogrammer.com/game-design-development/unity-drag-and-drop-tutorial/
     {
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);//doesn't work for some reason when i try to simplify it
-        if (Input.GetMouseButtonDown(0) && buildPhase) //on click down
+        if (Input.GetMouseButtonDown(0)) //on click down
         {
             if (playerMovable && collider == Physics2D.OverlapPoint(mousePos, BeltLayerMask))//figure out how to make it so the tiles cant be placed on eachother
             {
@@ -123,6 +121,4 @@ public class Draggable : MonoBehaviour
             Destroy(TargetChecker);
         }
     }
-
-    public void state(bool state) { buildPhase = state; }
 }
