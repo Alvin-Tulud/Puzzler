@@ -42,6 +42,18 @@ public class menuScreen : MonoBehaviour
         SceneManager.LoadScene(currentSceneName);
     }
 
+    public void nextScene()
+    {
+        if (SceneManager.GetActiveScene().buildIndex + 1 < SceneManager.sceneCount)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+        else
+        {
+            goToCredits();
+        }
+    }
+
 
     //Starting from scene 4 is where all of the levels are loaded (starting at level 1)
     public void gotoLevel(int levelNum)
