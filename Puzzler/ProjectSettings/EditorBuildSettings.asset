@@ -86,10 +86,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/Level_test_10.unity
     guid: 3dd9ac960433e454084a557c7de0ee1a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/Level_test_17.unity
     guid: bfc7b754c6c80f44dbb05d928e4db157
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/Level_test_18.unity
     guid: fd29ba1e196bc564b8cfa1cdc2aec215
   m_configObjects: {}
