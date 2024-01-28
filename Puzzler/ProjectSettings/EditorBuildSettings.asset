@@ -72,6 +72,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/Level_test_19.unity
     guid: 64182eb17a57c1f4fb3cc71927a7038a
   - enabled: 1
+    path: Assets/Scenes/Levels/Level_test_12.unity
+    guid: 487fb76fdd4303942b23da3baac52257
+  - enabled: 1
     path: Assets/Scenes/Levels/Level_test_11.unity
     guid: 289a0df584f306448ad81fbcf8f0e07a
   - enabled: 1
@@ -86,7 +89,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/Level_test_3.unity
     guid: 6df17b44097e7534086d20d5b12d2185
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/Level_test_9.unity
     guid: 69997919248210c4da73287599795d30
   - enabled: 1
@@ -98,9 +101,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/Level_test_20.unity
     guid: 8167d37a8f05cad4a800d68991ef8a79
-  - enabled: 0
-    path: Assets/Scenes/Levels/Level_test_12.unity
-    guid: 487fb76fdd4303942b23da3baac52257
   - enabled: 0
     path: Assets/Scenes/Levels/Level_test_17.unity
     guid: bfc7b754c6c80f44dbb05d928e4db157
