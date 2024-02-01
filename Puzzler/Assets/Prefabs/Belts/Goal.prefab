@@ -419,6 +419,7 @@ GameObject:
   - component: {fileID: 3763319452425519542}
   - component: {fileID: 4451631614325272817}
   - component: {fileID: 114395929098912990}
+  - component: {fileID: 7723493354293996158}
   m_Layer: 6
   m_Name: Goal
   m_TagString: Goal
@@ -530,7 +531,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 7.68, y: 7.68}
+    oldSize: {x: 0.96, y: 0.96}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -556,6 +557,19 @@ MonoBehaviour:
   - 
   - 
   - 
+  number_of_balls: 0
+--- !u!114 &7723493354293996158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3440691390337840372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af9be815dda30a74583f72079d13d7f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3692873948531713663
 GameObject:
   m_ObjectHideFlags: 0
