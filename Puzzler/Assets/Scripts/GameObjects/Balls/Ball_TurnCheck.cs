@@ -36,6 +36,7 @@ public class Ball_TurnCheck : MonoBehaviour
             //Destroy both balls on collision
             Destroy(collision.GetComponentInParent<Transform>().gameObject);
             Destroy(gameObject.GetComponentInParent<Transform>().gameObject);
+            //call build phase after
         }
 
         else //Edge case for if the ball collides with something other than a tile, might be extra tho
