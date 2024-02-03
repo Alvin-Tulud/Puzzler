@@ -13,6 +13,14 @@ public class Tile_Movement_Parent : MonoBehaviour
     protected float time;
     protected bool spotfound;
 
+    private void FixedUpdate()
+    {
+        if (true)
+        {
+
+        }
+    }
+
     public IEnumerator moveThing(string type = "belt")
     {
         this.gameObject.GetComponent<CircleCollider2D>().enabled = false;//turn off so it doesn't detect other balls while its running
