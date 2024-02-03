@@ -3233,7 +3233,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1347715726}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1347715728}
+        m_TargetAssemblyTypeName: Tutorial_Button, Assembly-CSharp
+        m_MethodName: next
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1347715726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3284,7 +3296,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beedbec096f4b0d45b52b3e5599a42c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animation: {fileID: 1433061842}
+  parent: {fileID: 1743237868}
+  animation: {fileID: 0}
   clips:
   - {fileID: 7400000, guid: df4e29f82a71d20418832800e1ddea07, type: 2}
   - {fileID: 7400000, guid: ac1752683ee14454695a5e5097cd65c9, type: 2}
@@ -3700,7 +3713,6 @@ GameObject:
   - component: {fileID: 1433061839}
   - component: {fileID: 1433061841}
   - component: {fileID: 1433061840}
-  - component: {fileID: 1433061843}
   - component: {fileID: 1433061842}
   m_Layer: 5
   m_Name: Tutorial_Animation
@@ -3787,24 +3799,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!111 &1433061843
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1433061838}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 0}
-  m_Animations:
-  - {fileID: 7400000, guid: df4e29f82a71d20418832800e1ddea07, type: 2}
-  - {fileID: 7400000, guid: ac1752683ee14454695a5e5097cd65c9, type: 2}
-  - {fileID: 7400000, guid: cfa343dfe4bb22d4895d8009a52fef3c, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!1 &1434715548
 GameObject:
   m_ObjectHideFlags: 0
