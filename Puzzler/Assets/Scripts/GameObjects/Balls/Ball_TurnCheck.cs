@@ -26,17 +26,17 @@ public class Ball_TurnCheck : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == 6) //6 is belt layer
+        if(collision.gameObject.layer == 7)
         {
-            collidedObj = collision.gameObject;
-        }
-
-        else if (collision.gameObject.layer == 7)//7 is ball layer
-        {
+            Debug.Log("hit");
             //Destroy both balls on collision
             Destroy(collision.GetComponentInParent<Transform>().gameObject);
             Destroy(gameObject.GetComponentInParent<Transform>().gameObject);
             //call build phase after
+        }
+        else if (collision.gameObject.layer == 6) //6 is belt layer
+        {
+            collidedObj = collision.gameObject;
         }
 
         else //Edge case for if the ball collides with something other than a tile, might be extra tho
