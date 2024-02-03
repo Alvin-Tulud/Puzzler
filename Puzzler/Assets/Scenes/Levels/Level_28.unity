@@ -556,6 +556,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8370551020071819300, guid: 9ee7a9c5acea2634f84f32b32edfce68, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8370551020071819300, guid: 9ee7a9c5acea2634f84f32b32edfce68, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8370551020071819300, guid: 9ee7a9c5acea2634f84f32b32edfce68, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8370551020071819300, guid: 9ee7a9c5acea2634f84f32b32edfce68, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190080
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1032,6 +1048,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5521712779847233207, guid: 52bc870e46b896f4c929d0106238b48f, type: 3}
+      propertyPath: playerMovable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6097650128043922297, guid: 52bc870e46b896f4c929d0106238b48f, type: 3}
       propertyPath: m_Name
       value: Flip_Belt_Parent (1)

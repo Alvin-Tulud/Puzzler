@@ -13,10 +13,7 @@ public class No_Drag_ : MonoBehaviour
     {
         drag = GetComponent<Draggable>();
         locked = GetComponent<SpriteRenderer>();
-    }
 
-    private void Update()
-    {
         if (!drag.playerMovable)
         {
             locked.enabled = true;
