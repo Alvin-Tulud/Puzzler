@@ -24,15 +24,10 @@ public class Goal_Visualizer : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0)) //on click down
         {
-            for(int i=0; i < Goal_Colors.Count; i++)
-            {
-                if(Goal_Colors[i] != null)
-                {
-                    string layer = Goal_Colors[i];
-                    Flask_Script.setColorMod(i,layer);
-                    Debug.Log("Set layer " + i + " to " + layer);
-                }
-            }
+            Flask_Script.setColorModList(Goal_Colors);
+            Debug.Log(Goal_Colors[0] + Goal_Colors[1]);
+
+            
         }
 
     }

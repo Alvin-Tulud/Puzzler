@@ -891,7 +891,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8601736298675529820, guid: cfe3c3ba39fea8b4d8ea2b59ff235618, type: 3}
       propertyPath: Tile_Count
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8601736298675529820, guid: cfe3c3ba39fea8b4d8ea2b59ff235618, type: 3}
       propertyPath: Tile_To_Spawn
@@ -1579,7 +1579,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 114395929098912990, guid: 7ee2c9764ea073449816da483a3215e7, type: 3}
       propertyPath: number_of_balls
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114395929098912990, guid: 7ee2c9764ea073449816da483a3215e7, type: 3}
       propertyPath: Goal_Colors.Array.data[0]
