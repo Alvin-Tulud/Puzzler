@@ -6,13 +6,17 @@ using UnityEngine.UI;
 public class No_Drag_ : MonoBehaviour
 {
     private Draggable drag;
-    private Image locked;
+    private SpriteRenderer locked;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         drag = GetComponent<Draggable>();
+        locked = GetComponent<SpriteRenderer>();
+    }
 
+    private void Update()
+    {
         if (!drag.playerMovable)
         {
             locked.enabled = true;
