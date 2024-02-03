@@ -31,6 +31,12 @@ public class Ball_TurnCheck : MonoBehaviour
             collidedObj = collision.gameObject;
         }
 
+        else if (collision.gameObject.layer == 7)//7 is ball layer
+        {
+            //Destroy both balls on collision
+            Destroy(collision.GetComponentInParent<Transform>().gameObject);
+            Destroy(gameObject.GetComponentInParent<Transform>().gameObject);
+        }
 
         else //Edge case for if the ball collides with something other than a tile, might be extra tho
         {
