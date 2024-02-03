@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Play_Button : MonoBehaviour
 {
@@ -7,6 +8,10 @@ public class Play_Button : MonoBehaviour
 
     private Turn_Clicker Turn_Clicker;
     private bool clicked;
+
+    public Sprite[] playButtonState;
+    private Image playButton;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,10 +23,14 @@ public class Play_Button : MonoBehaviour
         Build_Phase.GetComponent<Build_Phase_Initialize>().state(true);
 
         clicked = false;
+
+        playButton = GetComponent<Image>();
     }
 
     public void FlipFlop()
     {
+        playButton.sprite = playButtonState[1];
+
         if (!clicked)
         {
             Test_Phase.GetComponent<Test_Phase_Initialize>().state(true);//start test_phase
@@ -37,6 +46,8 @@ public class Play_Button : MonoBehaviour
 
     public void StartBuildPhase()
     {
+        playButton.sprite = playButtonState[0];
+
         Test_Phase.GetComponent<Test_Phase_Initialize>().state(false);//start build_phase
         Build_Phase.GetComponent<Build_Phase_Initialize>().state(true);
 
