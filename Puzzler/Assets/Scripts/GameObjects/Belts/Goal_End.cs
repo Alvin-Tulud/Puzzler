@@ -23,6 +23,8 @@ public class Goal_End : MonoBehaviour, Tile_Interface
     {
         if (collision.CompareTag("Ball"))
         {
+            collision.GetComponent<CircleCollider2D>().enabled = false;
+
             isRight = true;
             for (int i = 0; i < Goal_Colors.Count; i++)
             {
