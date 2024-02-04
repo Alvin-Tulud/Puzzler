@@ -28,11 +28,8 @@ public class Ball_TurnCheck : MonoBehaviour
     {
         if(collision.gameObject.layer == 7)
         {
-            Debug.Log("hit");
-            //Destroy both balls on collision
-            Destroy(collision.GetComponentInParent<Transform>().gameObject);
-            Destroy(gameObject.GetComponentInParent<Transform>().gameObject);
-            //call build phase after
+            GameObject playbutton = GameObject.FindGameObjectWithTag("Play_Button");
+            playbutton.GetComponent<Play_Button>().StartBuildPhase();
         }
         else if (collision.gameObject.layer == 6) //6 is belt layer
         {
