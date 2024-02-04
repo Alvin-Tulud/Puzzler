@@ -30,25 +30,32 @@ public class Tile_Movement_Parent : MonoBehaviour
 
         while (time <= speedBelt)
         {
-            for (int i = 0; i < thingsMoving.Count; i++)
+            try
             {
-                Transform t = thingsMoving[i];
-
-                var r = t;
-
-                if(!type.Equals("ice")) //if ice block, DONT reorient the ball so it keeps going in the same direction
+                for (int i = 0; i < thingsMoving.Count; i++)
                 {
-                    t.transform.rotation = transformBelt.rotation; //rotate ball to be same facing as the belt
-                    r = transformBelt;
-                }
+                    Transform t = thingsMoving[i];
 
-                if (t != null) //check if ball is stored and if the timer on it isn't maxxed
-                {
-                    Vector3 right = new Vector3(Mathf.Round(r.right.x), Mathf.Round(r.right.y), 0);
-                    thingMovingCurrentPosition = Vector3.Lerp(transformBelt.position, right + transformBelt.position, time / speedBelt);
+                    var r = t;
 
-                    thingsMoving[i].position = new Vector3(thingMovingCurrentPosition.x, thingMovingCurrentPosition.y, 0f);
+                    if (!type.Equals("ice")) //if ice block, DONT reorient the ball so it keeps going in the same direction
+                    {
+                        t.transform.rotation = transformBelt.rotation; //rotate ball to be same facing as the belt
+                        r = transformBelt;
+                    }
+
+                    if (t != null) //check if ball is stored and if the timer on it isn't maxxed
+                    {
+                        Vector3 right = new Vector3(Mathf.Round(r.right.x), Mathf.Round(r.right.y), 0);
+                        thingMovingCurrentPosition = Vector3.Lerp(transformBelt.position, right + transformBelt.position, time / speedBelt);
+
+                        thingsMoving[i].position = new Vector3(thingMovingCurrentPosition.x, thingMovingCurrentPosition.y, 0f);
+                    }
                 }
+            }
+            catch(System.Exception e)
+            {
+                //stop stupid
             }
             time += Time.fixedDeltaTime;
 
