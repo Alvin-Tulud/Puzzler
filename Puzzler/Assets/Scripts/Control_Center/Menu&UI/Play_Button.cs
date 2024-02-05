@@ -35,7 +35,6 @@ public class Play_Button : MonoBehaviour
         {
             Test_Phase.GetComponent<Test_Phase_Initialize>().state(true);//start test_phase
             Build_Phase.GetComponent<Build_Phase_Initialize>().state(false);
-            Debug.Log("test");
             clicked = true;
         }
         else
@@ -58,9 +57,6 @@ public class Play_Button : MonoBehaviour
             Flip_Belt_Move script = flipbelt.GetComponent<Flip_Belt_Move>();
             script.RealignFlipBelt();
         }
-
-
-        Debug.Log("build");
         clicked = false;
     }
 }

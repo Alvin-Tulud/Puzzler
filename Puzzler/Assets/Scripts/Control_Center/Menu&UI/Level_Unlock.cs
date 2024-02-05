@@ -27,6 +27,11 @@ public class Level_Unlock : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
+
+        for (int i = 0; i < 16; i++)
+        {
+            levelButtons.Add(null);
+        }
     }
 
     //do the level stuff here 
@@ -58,38 +63,41 @@ public class Level_Unlock : MonoBehaviour
 
             try//unlock level on scelet
             {
-                if (currentscene != SceneManager.GetActiveScene().buildIndex)//clear on scene switch
-                {
-                    levelButtons.Clear();
-                }
-                currentscene = SceneManager.GetActiveScene().buildIndex;
 
-                for (int i = 1; i <= 16; i++)
+                for (int i = 0; i < 16; i++)
                 {
-                    int sceneMath = (i + ((SceneManager.GetActiveScene().buildIndex - 1) * 16));
+                    int sceneMath = (i + 1 + ((SceneManager.GetActiveScene().buildIndex - 1) * 16));
                     GameObject g = GameObject.FindGameObjectWithTag("level_" + sceneMath); //g.GetComponent<Button>().interactable = true;
                     if (!levelButtons.Contains(g))//gets the buttons
                     {
-                        levelButtons.Add(g);
-                        DontDestroyOnLoad(g);
+                        levelButtons[i] = g;
                     }
 
                     try
                     {
-                        if (isWon[sceneMath - 1])//unlocks button
+                        if (isWon[sceneMath])//unlocks button
                         {
                             levelButtons[i].GetComponent<Button>().interactable = true;
                         }
                     }
                     catch(System.Exception e)
                     {
-                        //balls
+                        //Debug.Log("bruh: " + e);
                     }
+
+                    if (currentscene != SceneManager.GetActiveScene().buildIndex || !GameObject.FindGameObjectWithTag("level_" + sceneMath).activeInHierarchy)//clear on scene switch
+                    {
+                        for (int j = 0; j < levelButtons.Count; j++)
+                        {
+                            levelButtons[j] = null;
+                        }
+                    }
+                    currentscene = SceneManager.GetActiveScene().buildIndex;
                 }
             }
             catch (System.Exception e)
             {
-                //balls
+                //Debug.Log("egg: " + e);
             }
         }
     }
