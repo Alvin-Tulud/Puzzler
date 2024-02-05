@@ -75,7 +75,8 @@ public class Level_Unlock : MonoBehaviour
 
                     try
                     {
-                        if (isWon[sceneMath])//unlocks button
+                        //Debug.Log(sceneMath);
+                        if (isWon[sceneMath - 2])//unlocks button
                         {
                             levelButtons[i].GetComponent<Button>().interactable = true;
                         }
