@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Level_Unlock : MonoBehaviour
 {
@@ -14,8 +15,10 @@ public class Level_Unlock : MonoBehaviour
     public List<GameObject> levelButtons = new List<GameObject>();
     //maybe do a dictionary or something
 
+    private int currentscene;
+
     private void Awake()
-    {
+    {//https://learn.unity.com/tutorial/implement-data-persistence-between-scenes#634f8281edbc2a65c86270cc
         if (Instance != null)
         {
             Destroy(gameObject);
@@ -30,29 +33,64 @@ public class Level_Unlock : MonoBehaviour
     //hold bools for buttons and enable them when winscreen pops up for previous level
 
     //make a tag for each button level_i so its easy to do unlock level_ i+1 .getcomponentbutton = interactable find gameobject withtag("level_" + x) 
-    private void Start()
-    {//unlock the levels here
-        if (Level_Unlock.Instance != null)
-        {//do a foreach try catch
-
-        }
-    }
 
     public void Update()
     {//check if winscreen triggered
-        try
+        if (Level_Unlock.Instance != null)
         {
-            if (Level_Unlock.Instance != null && 
-                GameObject.FindGameObjectWithTag("WinScreen").GetComponent<WinScreen>().playerWon() &&
-                !levelsCleared.Contains(SceneManager.GetActiveScene().buildIndex - 9))
+            try//levelwon here
             {
-                levelsCleared.Add(SceneManager.GetActiveScene().buildIndex - 9);
-                isWon.Add(true);
+                if (!levelsCleared.Contains(SceneManager.GetActiveScene().buildIndex - 9) && GameObject.FindGameObjectWithTag("WinScreen").activeInHierarchy)//put level in list
+                {
+                    levelsCleared.Add(SceneManager.GetActiveScene().buildIndex - 9);
+                    isWon.Add(false);
+                }
+
+                if (GameObject.FindGameObjectWithTag("WinScreen").GetComponent<WinScreen>().playerWon())//check if player won
+                {
+                    isWon[SceneManager.GetActiveScene().buildIndex - 9 - 1] = true;
+                }
             }
-        }
-        catch(System.Exception e)
-        {
-            //balls
+            catch (System.Exception e)
+            {
+                //balls
+            }
+
+            try//unlock level on scelet
+            {
+                if (currentscene != SceneManager.GetActiveScene().buildIndex)//clear on scene switch
+                {
+                    levelButtons.Clear();
+                }
+                currentscene = SceneManager.GetActiveScene().buildIndex;
+
+                for (int i = 1; i <= 16; i++)
+                {
+                    int sceneMath = (i + ((SceneManager.GetActiveScene().buildIndex - 1) * 16));
+                    GameObject g = GameObject.FindGameObjectWithTag("level_" + sceneMath); //g.GetComponent<Button>().interactable = true;
+                    if (!levelButtons.Contains(g))//gets the buttons
+                    {
+                        levelButtons.Add(g);
+                        DontDestroyOnLoad(g);
+                    }
+
+                    try
+                    {
+                        if (isWon[sceneMath - 1])//unlocks button
+                        {
+                            levelButtons[i].GetComponent<Button>().interactable = true;
+                        }
+                    }
+                    catch(System.Exception e)
+                    {
+                        //balls
+                    }
+                }
+            }
+            catch (System.Exception e)
+            {
+                //balls
+            }
         }
     }
 }
