@@ -63,4 +63,6 @@ public class WinScreen : MonoBehaviour
             }
         }
     }
+
+    public bool playerWon() { return player_win; }
 }

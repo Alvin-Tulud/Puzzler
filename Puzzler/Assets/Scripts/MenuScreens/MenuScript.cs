@@ -44,9 +44,13 @@ public class menuScreen : MonoBehaviour
 
     public void nextScene()
     {
-        if (SceneManager.GetActiveScene().buildIndex + 1 < SceneManager.sceneCountInBuildSettings)
+        if (SceneManager.GetActiveScene().buildIndex + 1 < SceneManager.sceneCountInBuildSettings && (SceneManager.GetActiveScene().buildIndex - 9) % 16 != 0)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+        else if (SceneManager.GetActiveScene().buildIndex + 1 < SceneManager.sceneCountInBuildSettings && (SceneManager.GetActiveScene().buildIndex - 9) % 16 == 0)
+        {
+            goToGameSelect(((SceneManager.GetActiveScene().buildIndex - 9) / 16) + 1);//goes to next world
         }
         else
         {

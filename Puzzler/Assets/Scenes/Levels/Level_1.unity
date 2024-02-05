@@ -268,6 +268,10 @@ PrefabInstance:
 
         Yellow'
       objectReference: {fileID: 0}
+    - target: {fileID: 3874270077815506734, guid: 9ee7a9c5acea2634f84f32b32edfce68, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4321104717802915673, guid: 9ee7a9c5acea2634f84f32b32edfce68, type: 3}
       propertyPath: Test_Phase
       value: 
