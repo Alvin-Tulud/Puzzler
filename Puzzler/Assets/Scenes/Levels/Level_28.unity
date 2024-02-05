@@ -562,19 +562,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8370551020071819300, guid: 9ee7a9c5acea2634f84f32b32edfce68, type: 3}
       propertyPath: m_fontColor.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8370551020071819300, guid: 9ee7a9c5acea2634f84f32b32edfce68, type: 3}
       propertyPath: m_fontColor.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8370551020071819300, guid: 9ee7a9c5acea2634f84f32b32edfce68, type: 3}
       propertyPath: m_fontColor.r
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8370551020071819300, guid: 9ee7a9c5acea2634f84f32b32edfce68, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4278190080
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1738,7 +1738,7 @@ Transform:
   m_GameObject: {fileID: 1144979647}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.1384034, y: 0.107904345, z: -1.9987037}
+  m_LocalPosition: {x: -0.62, y: 0.107904345, z: -1.9987037}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
