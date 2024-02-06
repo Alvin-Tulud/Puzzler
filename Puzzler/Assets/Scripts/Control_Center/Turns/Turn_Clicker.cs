@@ -17,7 +17,7 @@ public class Turn_Clicker : MonoBehaviour
         //Debug.Log("Turn counter initialized and set  to 0 STUPID FREAKING KEYBOARD");
         balls = GameObject.FindGameObjectsWithTag("Ball");
         timer = 0;
-        timerlimit = 20;
+        timerlimit = 30;
         stopping = false;
     }
 
