@@ -4,10 +4,25 @@ using UnityEngine;
 
 public class Tutorial_Button : MonoBehaviour
 {
-    public GameObject parent;
+    public static Tutorial_Button Instance;
+
+    public List<GameObject> children;
     public Animator animation;
     private int i;
     // Start is called before the first frame update
+
+    private void Awake()
+    {//https://learn.unity.com/tutorial/implement-data-persistence-between-scenes#634f8281edbc2a65c86270cc
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+
     void Start()
     {
         i = 0;
@@ -29,7 +44,10 @@ public class Tutorial_Button : MonoBehaviour
         else
         {
             animation.SetBool("Rotate->Flask", false);
-            Destroy(parent);
+            foreach(GameObject go in children)
+            {
+                go.SetActive(false);
+            }
         }
     }
 }
