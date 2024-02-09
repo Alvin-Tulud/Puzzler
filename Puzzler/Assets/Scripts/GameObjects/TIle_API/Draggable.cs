@@ -98,7 +98,7 @@ public class Draggable : MonoBehaviour
 
             this.gameObject.layer = oldLayer; //put tile back to its proper layer
 
-            if (Input.GetKeyDown("r"))
+            if (Input.GetKeyDown("r") || Input.GetMouseButtonDown(1))
             {
                 transform.Rotate(0, 0, -90);
             }
