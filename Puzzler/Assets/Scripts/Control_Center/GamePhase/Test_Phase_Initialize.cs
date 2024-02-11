@@ -23,14 +23,15 @@ public class Test_Phase_Initialize : MonoBehaviour
     void Update()
     {
         if(testStart && !ballsSpawned)
-        {
-            foreach(GameObject g in goals)
+        {   
+            foreach (GameObject g in goals)
             {
                 g.GetComponent<Goal_End>().ballsReset();
             }
             foreach (GameObject g in spawners)
             {
                 g.GetComponent<Spawner_Start>().TurnEffect();
+                g.GetComponent<Spawner_Start>().showFlask(false);
             }
 
             clicker.enabled = true;
@@ -42,6 +43,7 @@ public class Test_Phase_Initialize : MonoBehaviour
             foreach(GameObject g in spawners)
             {
                 g.GetComponent<Spawner_Start>().setIsSpawned(false);
+                g.GetComponent<Spawner_Start>().showFlask(true);
             }
             foreach (GameObject g in GameObject.FindGameObjectsWithTag("Ball_Parent"))
             {

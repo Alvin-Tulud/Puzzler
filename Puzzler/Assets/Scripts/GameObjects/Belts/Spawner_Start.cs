@@ -5,6 +5,7 @@ using UnityEngine;
 public class Spawner_Start : Tile_Movement_Parent, Tile_Interface
 {
     public GameObject Flask_To_Spawn;
+    public GameObject Flask_To_Show;
     private bool isSpawned;
 
     void Start()
@@ -31,4 +32,6 @@ public class Spawner_Start : Tile_Movement_Parent, Tile_Interface
     }
 
     public void setIsSpawned(bool state) { isSpawned = state; }
+
+    public void showFlask(bool show) { Flask_To_Show.SetActive(show); }
 }
