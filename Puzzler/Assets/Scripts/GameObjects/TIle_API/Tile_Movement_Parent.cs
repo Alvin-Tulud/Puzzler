@@ -6,66 +6,52 @@ public class Tile_Movement_Parent : MonoBehaviour
 {
     protected Transform transformBelt;
 
-    protected List<Transform> thingsMoving;
-    protected List<Vector3> thingsMovingInitialPosition;
-    protected Vector3 thingMovingCurrentPosition;
-    public const int speedBelt = 1;
-    protected float time;
-    protected bool spotfound;
+    protected private List<Transform> thingsMoving;
+    protected private List<Vector3> thingsMovingInitialPosition;
+    protected private Vector3 thingMovingCurrentPosition;
+    protected private int speedBelt = 10;
+    protected private List<float> times;
+    protected private bool spotfound;
+    protected private bool canMove;
 
     private void FixedUpdate()
     {
-        if (true)
+        if (canMove)
         {
-
-        }
-    }
-
-    public IEnumerator moveThing(string type = "belt")
-    {
-        this.gameObject.GetComponent<CircleCollider2D>().enabled = false;//turn off so it doesn't detect other balls while its running
-        transformBelt = GetComponentInParent<Transform>();
-
-        time = 0f;
-
-        while (time <= speedBelt)
-        {
+            this.gameObject.GetComponent<CircleCollider2D>().enabled = false;//turn off so it doesn't detect other balls while its running
             try
             {
                 for (int i = 0; i < thingsMoving.Count; i++)
                 {
                     Transform t = thingsMoving[i];
-
-                    var r = t;
-
-                    if (!type.Equals("ice")) //if ice block, DONT reorient the ball so it keeps going in the same direction
+                    if (t != null && times[i] <= speedBelt) //check if ball is stored and if the timer on it isn't maxxed
                     {
-                        t.transform.rotation = transformBelt.rotation; //rotate ball to be same facing as the belt
-                        r = transformBelt;
-                    }
-
-                    if (t != null) //check if ball is stored and if the timer on it isn't maxxed
-                    {
-                        Vector3 right = new Vector3(Mathf.Round(r.right.x), Mathf.Round(r.right.y), 0);
-                        thingMovingCurrentPosition = Vector3.Lerp(transformBelt.position, right + transformBelt.position, time / speedBelt);
+                        Vector3 right = new Vector3(Mathf.Round(t.right.x), Mathf.Round(t.right.y), 0);
+                        thingMovingCurrentPosition = Vector3.Lerp(transformBelt.position, right + transformBelt.position, times[i] / speedBelt);
 
                         thingsMoving[i].position = new Vector3(thingMovingCurrentPosition.x, thingMovingCurrentPosition.y, 0f);
+                        times[i]++;
+                    }
+                    else
+                    {
+                        thingsMoving[i] = null;
+                        thingsMovingInitialPosition[i] = Vector3.zero;
+                        times[i] = 0;
+                        canMove = false;
+                        this.gameObject.GetComponent<CircleCollider2D>().enabled = true;
                     }
                 }
             }
-            catch(System.Exception e)
+            catch (System.Exception e)
             {
-                //stop stupid
+                //balls
             }
-            time += Time.fixedDeltaTime;
-
-            yield return null;
         }
+    }
 
-        thingsMoving.Clear();
-
-        this.gameObject.GetComponent<CircleCollider2D>().enabled = true;
-
+    public IEnumerator moveThing(string type = "belt")
+    {
+        canMove = true;
         yield return null;
     }
 
@@ -73,6 +59,11 @@ public class Tile_Movement_Parent : MonoBehaviour
     {
         if (collision.CompareTag("Ball"))
         {
+            if (!transformBelt.CompareTag("Ice"))
+            {
+                collision.transform.rotation = transformBelt.rotation; //rotate ball to be same facing as the belt
+            }
+            
             for (int i = 0; i < thingsMoving.Count; i++)
             {
                 Transform t = thingsMoving[i];
@@ -80,6 +71,7 @@ public class Tile_Movement_Parent : MonoBehaviour
                 {
                     thingsMoving[i] = collision.transform;
                     thingsMovingInitialPosition[i] = collision.transform.position;
+                    times[i] = 0;
                     spotfound = true;
                     break;//breaks when it finds a free space
                 }
@@ -89,6 +81,7 @@ public class Tile_Movement_Parent : MonoBehaviour
             {
                 thingsMoving.Add(collision.transform);
                 thingsMovingInitialPosition.Add(collision.transform.position);
+                times.Add(0);
             }
 
             spotfound = false; //reset to default
