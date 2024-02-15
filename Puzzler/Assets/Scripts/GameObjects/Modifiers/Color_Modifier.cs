@@ -6,7 +6,7 @@ public class Color_Modifier : Tile_Movement_Parent , Tile_Interface
 {
     void Start()
     {
-        transformBelt = transform;
+        transformBelt = gameObject.GetComponentInParent<Transform>();
         thingsMoving = new List<Transform>();
         thingsMovingInitialPosition = new List<Vector3>();
         times = new List<float>();

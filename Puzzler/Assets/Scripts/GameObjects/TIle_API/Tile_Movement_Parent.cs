@@ -59,7 +59,11 @@ public class Tile_Movement_Parent : MonoBehaviour
     {
         if (collision.CompareTag("Ball"))
         {
-            if (!transformBelt.CompareTag("Ice"))
+            if (transformBelt.CompareTag("Flip_Belt"))
+            {
+                collision.transform.rotation = Quaternion.Inverse(transformBelt.rotation);
+            }
+            else if (!transformBelt.CompareTag("Ice"))
             {
                 collision.transform.rotation = transformBelt.rotation; //rotate ball to be same facing as the belt
             }

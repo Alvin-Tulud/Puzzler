@@ -11,6 +11,7 @@ public class Flip_Belt_Move : Tile_Movement_Parent, Tile_Interface
         transformBelt = gameObject.GetComponentInParent<Transform>();
         thingsMoving = new List<Transform>();
         thingsMovingInitialPosition = new List<Vector3>();
+        times = new List<float>();
 
         spotfound = false;
 
