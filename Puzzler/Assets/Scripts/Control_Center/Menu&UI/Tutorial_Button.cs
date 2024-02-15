@@ -21,6 +21,7 @@ public class Tutorial_Button : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
+        StartCoroutine(hideButton());
     }
 
     void Start()
@@ -35,11 +36,13 @@ public class Tutorial_Button : MonoBehaviour
         if (i == 1)
         {
             animation.SetBool("Drag->Rotate", true);
+            StartCoroutine(hideButton());
         }
         else if (i == 2)
         {
             animation.SetBool("Drag->Rotate", false);
             animation.SetBool("Rotate->Flask", true);
+            StartCoroutine(hideButton());
         }
         else
         {
@@ -49,5 +52,12 @@ public class Tutorial_Button : MonoBehaviour
                 go.SetActive(false);
             }
         }
+    }
+
+    IEnumerator hideButton()
+    {
+        children[1].gameObject.SetActive(false);
+        yield return new WaitForSeconds(3);
+        children[1].gameObject.SetActive(true);
     }
 }
