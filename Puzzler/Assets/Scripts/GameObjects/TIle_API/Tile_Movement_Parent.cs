@@ -61,7 +61,8 @@ public class Tile_Movement_Parent : MonoBehaviour
         {
             if (transformBelt.CompareTag("Flip_Belt"))
             {
-                collision.transform.rotation = Quaternion.Inverse(transformBelt.rotation);
+                collision.transform.rotation = transformBelt.rotation; //FIRST make the ball face the correct dir. of the belt
+                collision.transform.RotateAround(transform.position, Vector3.forward, 180); //THEN invert the ball (I forgor why this works but trust)
             }
             else if (!transformBelt.CompareTag("Ice"))
             {
