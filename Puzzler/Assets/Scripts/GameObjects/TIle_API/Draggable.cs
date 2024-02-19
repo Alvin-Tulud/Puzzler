@@ -13,6 +13,7 @@ public class Draggable : MonoBehaviour
     private Vector3 LastValidPosition;
     private LayerMask BeltLayerMask;
     private LayerMask ValidTilelayerMask;
+    private LayerMask TrashbinLayerMask;
     //private LayerMask FloorLayerMask; //Reenable this when we implement floor tiles
    
     void Start()
@@ -23,7 +24,7 @@ public class Draggable : MonoBehaviour
         //FactoryLayerMask = 1 << 6; //belt layer (6)
         BeltLayerMask = 1 << 6 |1 << 8;
         ValidTilelayerMask = 1 << 9;
-        //TODO add floor layer mask when it becomes applicable
+        TrashbinLayerMask = 1 << 11;
     }
 
     private void Update()// code taken from here https://generalistprogrammer.com/game-design-development/unity-drag-and-drop-tutorial/
@@ -107,6 +108,34 @@ public class Draggable : MonoBehaviour
         {
             canMove = false;
             dragging = false;
+
+            //FIRST check if the tile is being put away in the trashbin
+            //THEN do the associated snapping
+
+            //Check if hovering over trashbin:
+            RaycastHit2D trashbinCollisionCheck = Physics2D.Raycast(this.transform.position, this.transform.forward, 0.1f, TrashbinLayerMask);
+            if(trashbinCollisionCheck)
+            {
+
+                Destroy(DragTarget);
+                Destroy(TargetChecker);
+
+                //populate tileSlots with the list of tile slots
+                GameObject[] tileSlots = GameObject.FindGameObjectsWithTag("Tile_Slot");
+
+                GameObject tileSlot; //Holds the slot of the same type as the to-be-deleted tile
+
+                for(int i=0; i<tileSlots.Length; i++)
+                {
+                    
+                }
+                //If a tileSlot bearing the respective tile can't be found, don't do anything
+
+                //TODO: Properly add back the count to tileSlot
+                Destroy(this.gameObject);
+
+            }
+
             //place the dragged tile at target location
             //destroy target and targetChecker
             try
