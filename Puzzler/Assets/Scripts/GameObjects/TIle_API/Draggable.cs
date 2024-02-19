@@ -35,11 +35,13 @@ public class Draggable : MonoBehaviour
             {
                 canMove = true;
                 GameObject g;//store as gameobject and set them to be 
-                g = Instantiate(SpawnDragTarget, Vector3.zero, transform.rotation); //Creates DragTarget
+                g = Instantiate(SpawnDragTarget, transform.position, transform.rotation); //Creates DragTarget
                 g.transform.SetParent(transform, false);//Alvin: changed transform.position to vector3.zero because it wasn't instantiating in the middle of the draggable object
+                g.transform.position = Vector3.zero;
                 DragTarget = g;
-                g = Instantiate(SpawnTargetChecker, Vector3.zero, transform.rotation); //Creates TargetChecker
+                g = Instantiate(SpawnTargetChecker, transform.position, transform.rotation); //Creates TargetChecker
                 g.transform.SetParent(transform, false);
+                g.transform.position = Vector3.zero;
                 TargetChecker = g;
 
                 //need to initialize collision logic for targetchecker here
