@@ -18,7 +18,7 @@ public class Tile_Movement_Parent : MonoBehaviour
     {
         if (canMove)
         {
-            this.gameObject.GetComponent<CircleCollider2D>().enabled = false;//turn off so it doesn't detect other balls while its running
+            //this.gameObject.GetComponent<CircleCollider2D>().enabled = false;//turn off so it doesn't detect other balls while its running
             try
             {
                 for (int i = 0; i < thingsMoving.Count; i++)
@@ -38,7 +38,7 @@ public class Tile_Movement_Parent : MonoBehaviour
                         thingsMovingInitialPosition[i] = Vector3.zero;
                         times[i] = 0;
                         canMove = false;
-                        this.gameObject.GetComponent<CircleCollider2D>().enabled = true;
+                        //this.gameObject.GetComponent<CircleCollider2D>().enabled = true;
                     }
                 }
             }
