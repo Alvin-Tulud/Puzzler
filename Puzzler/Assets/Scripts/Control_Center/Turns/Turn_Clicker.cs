@@ -59,11 +59,16 @@ public class Turn_Clicker : MonoBehaviour
         turnCounter++; //increment the counter
         //notify observers of the change
         //Debug.Log("INCREMENTING, counter is now " + turnCounter);
-
-        foreach(GameObject ball in balls)
+        try
         {
-            ball.GetComponent<Ball_TurnCheck>().DoTurn(); //ALL BALLS will do their turn
+            foreach (GameObject ball in balls)
+            {
+                ball.GetComponent<Ball_TurnCheck>().DoTurn(); //ALL BALLS will do their turn
+                //Debug.Log(ball.transform.name + "MOVED");
+            }
         }
+        catch(System.Exception e) { }
+        
     }
 
     public void Stopping(bool stop)

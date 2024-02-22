@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: 1498225871500974625}
   m_Layer: 7
   m_Name: Ball_Interact
-  m_TagString: Ball
+  m_TagString: Ball_Menu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
