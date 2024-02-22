@@ -48,7 +48,6 @@ public class Turn_Clicker : MonoBehaviour
                 DoTurn();
                 timer = 0;
             }
-            
         }
     }
 
