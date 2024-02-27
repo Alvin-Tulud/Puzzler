@@ -73,4 +73,14 @@ public class Resource_Count : MonoBehaviour
             Tile_Count_Tracker.text = "0";
         }
     }
+
+    //Used by Draggable's trashbin logic to increase tile count.
+    public void AddTile()
+    {
+        GameObject g = Instantiate(Tile_To_Spawn, transform.position, transform.rotation);
+        Tiles.Add(g);
+
+        g.name = Tile_To_Spawn.name + ": " + (Tiles.Count);
+        g.SetActive(false);
+    }
 }

@@ -118,23 +118,29 @@ public class Draggable : MonoBehaviour
             RaycastHit2D trashbinCollisionCheck = Physics2D.Raycast(this.transform.position, this.transform.forward, 0.1f, TrashbinLayerMask);
             if(trashbinCollisionCheck)
             {
-
+                //Debug.Log("Collided with trashbin");
                 Destroy(DragTarget);
                 Destroy(TargetChecker);
 
                 //populate tileSlots with the list of tile slots
                 GameObject[] tileSlots = GameObject.FindGameObjectsWithTag("Tile_Slot");
 
-                GameObject tileSlot; //Holds the slot of the same type as the to-be-deleted tile
+                GameObject tile = this.gameObject; //Holds the slot of the same type as the to-be-deleted tile
 
+                //checks the different tileSlots to see which is right
                 for(int i=0; i<tileSlots.Length; i++)
                 {
-                    
+                    Debug.Log("Checking" + i);
+                    GameObject tileSlot = tileSlots[i];
+                    Resource_Count tileSlotScript = tileSlot.GetComponent<Resource_Count>();
+                    if ((tileSlotScript.Tile_To_Spawn).tag == tile.tag) //if tileSlot matches the tile:
+                    {
+                        Debug.Log(i + "works");
+                        tileSlotScript.AddTile(); //add tile back to the stack
+                        Destroy(this.gameObject);
+                    }
                 }
-                //If a tileSlot bearing the respective tile can't be found, don't do anything
-
-                //TODO: Properly add back the count to tileSlot
-                Destroy(this.gameObject);
+                //If a tileSlot bearing the respective tile can't be found, don't do anything             
 
             }
 
