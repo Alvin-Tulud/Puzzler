@@ -133,8 +133,8 @@ public class Draggable : MonoBehaviour
                     Debug.Log("Checking" + i);
                     GameObject tileSlot = tileSlots[i];
                     Resource_Count tileSlotScript = tileSlot.GetComponent<Resource_Count>();
-                    if ((tileSlotScript.Tile_To_Spawn).tag == tile.tag) //if tileSlot matches the tile:
-                    {
+                    if ((tileSlotScript.Tile_To_Spawn).transform.GetChild(0).tag == tile.transform.GetChild(0).tag) //if tileSlot matches the tile:
+                    {   //^(quick note: you have to get the child's tag because the parent's tag is just draggable)
                         Debug.Log(i + "works");
                         tileSlotScript.AddTile(); //add tile back to the stack
                         Destroy(this.gameObject);
