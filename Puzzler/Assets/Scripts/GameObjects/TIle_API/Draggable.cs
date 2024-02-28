@@ -114,9 +114,16 @@ public class Draggable : MonoBehaviour
             //FIRST check if the tile is being put away in the trashbin
             //THEN do the associated snapping
 
-            //Check if hovering over trashbin:
-            RaycastHit2D trashbinCollisionCheck = Physics2D.Raycast(this.transform.position, this.transform.forward, 0.1f, TrashbinLayerMask);
-            if(trashbinCollisionCheck)
+            //Check if hovering over trashbin OR if DragTarget(orange box) is still in the toolbox:
+
+            //Raycast to see if mouse is hovering over trashbin
+            RaycastHit2D trashbinMouseCollisionCheck = Physics2D.Raycast(this.transform.position, this.transform.forward, 0.1f, TrashbinLayerMask);
+
+            //Raycast to see if DragTarget is still in the toolbox
+            RaycastHit2D trashbinTargetCollisionCheck = Physics2D.Raycast(DragTarget.transform.position, DragTarget.transform.forward, 0.1f, TrashbinLayerMask);
+
+            //Trigger if either mouse is over trashbin or DragTarget is still in trashbin
+            if (trashbinMouseCollisionCheck || trashbinTargetCollisionCheck)
             {
                 //Debug.Log("Collided with trashbin");
                 Destroy(DragTarget);
