@@ -507,6 +507,7 @@ GameObject:
   - component: {fileID: 5691310631728253696}
   - component: {fileID: 386280108112376280}
   - component: {fileID: 8866591825976874688}
+  - component: {fileID: 7835315779085275717}
   m_Layer: 6
   m_Name: Ball_Spawner
   m_TagString: Spawner
@@ -631,6 +632,27 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.01
+--- !u!95 &7835315779085275717
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8492614806325371058}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a9beb645ac4653447981ca26a3223b20, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &9098756478652161451
 GameObject:
   m_ObjectHideFlags: 0

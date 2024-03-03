@@ -192,6 +192,7 @@ GameObject:
   - component: {fileID: 3619120638078011151}
   - component: {fileID: 489663557273618204}
   - component: {fileID: 8786519307501358643}
+  - component: {fileID: 7324649312379678593}
   m_Layer: 6
   m_Name: RedColor_Modifier
   m_TagString: Red_Modifier
@@ -314,6 +315,27 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.01
+--- !u!95 &7324649312379678593
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2693085680358019801}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c1da9cabfd0610c4aa874f7eaa4414d1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4747970339818870596
 GameObject:
   m_ObjectHideFlags: 0

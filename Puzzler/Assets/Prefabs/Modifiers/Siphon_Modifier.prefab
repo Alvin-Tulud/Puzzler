@@ -342,6 +342,7 @@ GameObject:
   - component: {fileID: 930003337953774184}
   - component: {fileID: 6601452117091365220}
   - component: {fileID: 3753556439258855825}
+  - component: {fileID: 8239780554879639727}
   m_Layer: 6
   m_Name: Siphon_Modifier
   m_TagString: Siphon_Modifier
@@ -464,6 +465,27 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.01
+--- !u!95 &8239780554879639727
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3869770700189610471}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5b845daee09b474449f70df712187cb8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &9210235126595078343
 GameObject:
   m_ObjectHideFlags: 0
