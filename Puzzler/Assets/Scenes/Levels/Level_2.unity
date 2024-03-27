@@ -1096,6 +1096,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RedColor_Modifier_Parent
       objectReference: {fileID: 0}
+    - target: {fileID: 492610133178399946, guid: a8ff25286b1c3b54db27ebc523f0a1f6, type: 3}
+      propertyPath: playerMovable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4400385217312052499, guid: a8ff25286b1c3b54db27ebc523f0a1f6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.99999976
