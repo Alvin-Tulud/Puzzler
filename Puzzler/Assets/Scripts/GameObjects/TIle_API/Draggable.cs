@@ -46,6 +46,9 @@ public class Draggable : MonoBehaviour
                 TargetChecker = g;
 
                 //need to initialize collision logic for targetchecker here
+
+                //on click down SFX
+                TileSelectAudio.TileSelectSFX();
             }
             else
             {
@@ -104,6 +107,7 @@ public class Draggable : MonoBehaviour
             if (Input.GetKeyDown("r") || Input.GetMouseButtonDown(1))
             {
                 transform.Rotate(0, 0, -90);
+                TileSelectAudio.TileRotateSFX();
             }
         }
         if (canMove && Input.GetMouseButtonUp(0)) //when letting go
@@ -128,6 +132,7 @@ public class Draggable : MonoBehaviour
                 //Debug.Log("Collided with trashbin");
                 Destroy(DragTarget);
                 Destroy(TargetChecker);
+                TileSelectAudio.TileDeleteSFX();
 
                 //populate tileSlots with the list of tile slots
                 GameObject[] tileSlots = GameObject.FindGameObjectsWithTag("Tile_Slot");
@@ -149,6 +154,12 @@ public class Draggable : MonoBehaviour
                 }
                 //If a tileSlot bearing the respective tile can't be found, don't do anything             
 
+            }
+
+            else
+            {
+                // had to add else so the tile drop vs delete sounds don't play at the same time
+                TileSelectAudio.TileDropSFX();
             }
 
             //place the dragged tile at target location

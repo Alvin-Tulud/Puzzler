@@ -10,7 +10,6 @@ public class menuScreen : MonoBehaviour
     {
         //This method will switch the current scene to the game selection screen.
         SceneManager.LoadScene(world);
-        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/UI/UIButtonClick");
 
     }
 
@@ -25,7 +24,7 @@ public class menuScreen : MonoBehaviour
     {
         //This method will switch the current scene to the controls scene.
         SceneManager.LoadScene(9);
-
+        
     }
 
     public void goBackMenu()

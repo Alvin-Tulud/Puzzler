@@ -41,6 +41,7 @@ public class Color_Modifier : Tile_Movement_Parent , Tile_Interface
                 if (t.GetComponent<Ball_Modify>().getColorModList()[i].Length == 0)
                 {
                     t.GetComponent<Ball_Modify>().setColorMod(i, color);
+                    FactoryRunAudio.DepositModSFX();
                     break;
                 }
             }

@@ -36,10 +36,12 @@ public class Play_Button : MonoBehaviour
             Test_Phase.GetComponent<Test_Phase_Initialize>().state(true);//start test_phase
             Build_Phase.GetComponent<Build_Phase_Initialize>().state(false);
             clicked = true;
+            FactoryRunAudio.FactoryStartupSFX();
         }
         else
         {
             Turn_Clicker.Stopping(true);
+            FactoryRunAudio.FactoryStopSFX();
         }
     }
 
