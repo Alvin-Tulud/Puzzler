@@ -65,7 +65,7 @@ public class Resource_Count : MonoBehaviour
                 Tiles.RemoveAt(i);
                 Next_Tile--;
             }
-            if (Tiles[i].activeInHierarchy && Tiles[i].transform.localToWorldMatrix != gameObject.transform.localToWorldMatrix)
+            else if (Tiles[i].activeInHierarchy && Tiles[i].transform.localToWorldMatrix != gameObject.transform.localToWorldMatrix)
             {
                 Tiles.RemoveAt(i);
                 Next_Tile--;
