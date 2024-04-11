@@ -12,7 +12,6 @@ public class Resource_Count : MonoBehaviour
     public List<GameObject> Tiles;
     private LayerMask BeltLayerMask;
     private int Next_Tile;
-    private int Current_Tile_Count;
     public TextMeshProUGUI Tile_Count_Tracker;
 
     // Start is called before the first frame update
