@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -38,6 +39,7 @@ public class Resource_Count : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //turns the tile on and sets the next tile as usable
         RaycastHit2D checkTile = Physics2D.Raycast(transform.position, transform.forward, 0.1f, BeltLayerMask);
 
         if (Next_Tile < Tiles.Count)
@@ -55,23 +57,23 @@ public class Resource_Count : MonoBehaviour
             gameObject.layer = 0;
         }
 
-        RaycastHit2D[] currentCount = Physics2D.RaycastAll(transform.position, transform.forward, 0.1f, BeltLayerMask);
-        Current_Tile_Count = currentCount.Length;
 
-        if (Current_Tile_Count == 2)
-        {
-            Tile_Count_Tracker.text = ((Tile_Count + 1 - Next_Tile) + 1).ToString();
+        //keeps tracks of the count of how many tiles there are
+        for(int i = 0; i < Tiles.Count; i++)
+        {   
+            if (Tiles[i] == null)
+            {
+                Tiles.RemoveAt(i);
+                Next_Tile--;
+            }
+            if (Tiles[i].activeInHierarchy && Tiles[i].transform.localToWorldMatrix != gameObject.transform.localToWorldMatrix)
+            {
+                Tiles.RemoveAt(i);
+                Next_Tile--;
+            }
         }
 
-        else if (Current_Tile_Count == 1)
-        {
-            Tile_Count_Tracker.text = (Tile_Count + 1 - Next_Tile).ToString();
-        }
-
-        else
-        {
-            Tile_Count_Tracker.text = "0";
-        }
+        Tile_Count_Tracker.text = Tiles.Count.ToString();
     }
 
     //Used by Draggable's trashbin logic to increase tile count.
