@@ -1307,7 +1307,7 @@ GameObject:
   - component: {fileID: 910157215}
   m_Layer: 0
   m_Name: Level_Unlocker
-  m_TagString: Untagged
+  m_TagString: Level_Unlocker
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2652,7 +2652,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelCode: {fileID: 474507975}
-  unlockScript: {fileID: 910157215}
+  unlockScript: {fileID: 0}
   isWon: 
   levelsCleared: 
 --- !u!114 &1959252410
