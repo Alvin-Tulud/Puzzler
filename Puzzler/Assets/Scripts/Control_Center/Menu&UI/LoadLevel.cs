@@ -1,0 +1,48 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using TMPro;
+
+public class LoadLevel : MonoBehaviour
+{
+    public TMP_Text levelCode;
+    public Level_Unlock unlockScript;
+    public List<bool> isWon = new List<bool>();
+    public List<int> levelsCleared = new List<int>();
+    string scrambleCode = "43895F6v7n897B59N8H6Vb7n6RVBb5vb67NRVb8o568J7TBTty7R7B87N9y7gM987NTr5V4EV56NOI9B7896rvb7BH6V54bre6BR6895t078b670V567brRF8Tfgno";
+    
+
+    public void getInput(string code)
+    {
+        //do comparison
+        Debug.Log(code);
+        int level = 0;
+
+        //first check if first 2 chars are ints
+        if (int.TryParse(code.Substring(0, 2),out level))
+        {
+            //check if next 2 chars coencide with the scramble position
+            if (scrambleCode.Substring(level - 1, 2).CompareTo(code.Substring(2, 2)) == 0)
+            {
+                if (level >= unlockScript.getisWon().Count)
+                {
+                    isWon = unlockScript.getisWon();
+                    levelsCleared = unlockScript.getLevelsCleared();
+
+
+                    for (int i = isWon.Count; i < level; i++)
+                    {
+                        isWon.Add(true);
+                        levelsCleared.Add(i);
+                    }
+
+
+                    unlockScript.setIsWon(isWon);
+                    unlockScript.setLevelsCleared(levelsCleared);
+                }
+                //if level code is less than levels already unlocked do nothing
+                //call unlock script and add the levels to iswon and levelscleared
+            }
+        }
+    }
+}

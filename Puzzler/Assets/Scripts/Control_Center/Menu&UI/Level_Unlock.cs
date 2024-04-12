@@ -102,4 +102,24 @@ public class Level_Unlock : MonoBehaviour
             }
         }
     }
+
+    public List<bool> getisWon()
+    {
+        return isWon;
+    }
+
+    public List<int> getLevelsCleared()
+    {
+        return levelsCleared;
+    }
+
+    public void setIsWon(List<bool> isWon)
+    {
+        this.isWon = isWon;
+    }
+
+    public void setLevelsCleared(List<int> levelsCleared)
+    {
+        this.levelsCleared = levelsCleared;
+    }
 }
