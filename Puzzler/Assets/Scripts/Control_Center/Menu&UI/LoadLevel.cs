@@ -36,6 +36,11 @@ public class LoadLevel : MonoBehaviour
                     isWon = unlockScript.getisWon();
                     levelsCleared = unlockScript.getLevelsCleared();
 
+                    for (int i = 0; i < isWon.Count; i++)
+                    {
+                        isWon[i] = true;
+                    }
+
 
                     for (int i = isWon.Count; i < level; i++)
                     {
