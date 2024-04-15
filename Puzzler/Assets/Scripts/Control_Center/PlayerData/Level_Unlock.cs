@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.IO;
 
 public class Level_Unlock : MonoBehaviour
 {
@@ -100,6 +101,40 @@ public class Level_Unlock : MonoBehaviour
             {
                 //Debug.Log("egg: " + e);
             }
+        }
+
+        PlayerPrefs.SetInt("levelsCleared_count", levelsCleared.Count);
+        PlayerPrefs.SetInt("isWon_count", isWon.Count);
+
+        for (int i = 0; i < levelsCleared.Count; i++)
+        {
+            PlayerPrefs.SetInt("levelsCleared_" + i, levelsCleared[i]);
+
+            if (isWon[i])
+            {
+                PlayerPrefs.SetInt("isWon_count" + i, 1);
+            }
+            else
+            {
+                PlayerPrefs.SetInt("isWon_count" + i, 0);
+            }
+        }
+
+        PlayerPrefs.Save();
+
+        string filename = Application.persistentDataPath + "/idbfs/f040ef38b28c9dc00cebf957e774e239/PlayerPrefs";
+        try
+        {
+            string content = File.ReadAllText(filename);
+            Debug.Log("file read: " + content);
+        }
+        catch (System.IO.IsolatedStorage.IsolatedStorageException e)
+        {
+            File.WriteAllText(filename,
+                "This is a test");
+            // call FS.syncfs to actualy save pending fs changes to IndexedDB
+            Application.ExternalEval("FS.syncfs(false, function (err) {})");
+            Debug.Log("file saved.");
         }
     }
 
