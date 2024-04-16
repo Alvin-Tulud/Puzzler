@@ -50,11 +50,13 @@ public class Level_Unlock : MonoBehaviour
                 {
                     levelsCleared.Add(SceneManager.GetActiveScene().buildIndex - 9);
                     isWon.Add(false);
+                    saveData();
                 }
 
                 if (GameObject.FindGameObjectWithTag("WinScreen").GetComponent<WinScreen>().playerWon())//check if player won
                 {
                     isWon[SceneManager.GetActiveScene().buildIndex - 9 - 1] = true;
+                    saveData();
                 }
             }
             catch (System.Exception e)
@@ -102,40 +104,6 @@ public class Level_Unlock : MonoBehaviour
                 //Debug.Log("egg: " + e);
             }
         }
-
-        PlayerPrefs.SetInt("levelsCleared_count", levelsCleared.Count);
-        PlayerPrefs.SetInt("isWon_count", isWon.Count);
-
-        for (int i = 0; i < levelsCleared.Count; i++)
-        {
-            PlayerPrefs.SetInt("levelsCleared_" + i, levelsCleared[i]);
-
-            if (isWon[i])
-            {
-                PlayerPrefs.SetInt("isWon_count" + i, 1);
-            }
-            else
-            {
-                PlayerPrefs.SetInt("isWon_count" + i, 0);
-            }
-        }
-
-        PlayerPrefs.Save();
-
-        string filename = Application.persistentDataPath + "/idbfs/f040ef38b28c9dc00cebf957e774e239/PlayerPrefs";
-        try
-        {
-            string content = File.ReadAllText(filename);
-            Debug.Log("file read: " + content);
-        }
-        catch (System.IO.IsolatedStorage.IsolatedStorageException e)
-        {
-            File.WriteAllText(filename,
-                "This is a test");
-            // call FS.syncfs to actualy save pending fs changes to IndexedDB
-            Application.ExternalEval("FS.syncfs(false, function (err) {})");
-            Debug.Log("file saved.");
-        }
     }
 
     public List<bool> getisWon()
@@ -151,10 +119,55 @@ public class Level_Unlock : MonoBehaviour
     public void setIsWon(List<bool> isWon)
     {
         this.isWon = isWon;
+        saveData();
     }
 
     public void setLevelsCleared(List<int> levelsCleared)
     {
         this.levelsCleared = levelsCleared;
+        saveData();
+    }
+
+    public void saveData()
+    {
+        //PlayerPrefs.SetString("levelsCleared_count", levelsCleared.Count.ToString("D2"));
+        PlayerPrefs.SetString("isWon_count", isWon.Count.ToString("D2"));
+
+        for (int i = 0; i < isWon.Count; i++)
+        {
+            //PlayerPrefs.SetString("levelsCleared_" + i, levelsCleared[i].ToString("D2"));
+
+            if (isWon[i])
+            {
+                PlayerPrefs.SetString("isWon_count" + i.ToString("D2"), 1.ToString("D2"));
+            }
+            else
+            {
+                PlayerPrefs.SetString("isWon_count" + i.ToString("D2"), 0.ToString("D2"));
+            }
+        }
+
+        PlayerPrefs.Save();
+
+        string filename = Application.persistentDataPath + "/PlayerPrefs";
+        try
+        {
+            string content = File.ReadAllText(filename);
+            string[] filetext = File.ReadAllLines(filename);
+            Debug.Log("file read: " + content);
+            int info = 0;
+            string numinfo = "";
+            for (int i = 0; i < filetext.Length; i++)
+            {
+
+                numinfo = filetext[i].Substring(filetext[i].Length - 2,2);
+                int.TryParse(numinfo, out info);
+                Debug.Log(filetext[i] + "||" + info);
+            }
+        }
+        catch (System.IO.IsolatedStorage.IsolatedStorageException e)
+        {
+            //i dont make errors
+        }
     }
 }
