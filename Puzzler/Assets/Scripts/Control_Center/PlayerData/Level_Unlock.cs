@@ -33,6 +33,9 @@ public class Level_Unlock : MonoBehaviour
         {
             levelButtons.Add(null);
         }
+
+        saveData();
+        readData();
     }
 
     //do the level stuff here 
@@ -50,14 +53,14 @@ public class Level_Unlock : MonoBehaviour
                 {
                     levelsCleared.Add(SceneManager.GetActiveScene().buildIndex - 9);
                     isWon.Add(false);
-                    saveData();
                 }
 
                 if (GameObject.FindGameObjectWithTag("WinScreen").GetComponent<WinScreen>().playerWon())//check if player won
                 {
                     isWon[SceneManager.GetActiveScene().buildIndex - 9 - 1] = true;
-                    saveData();
                 }
+
+                saveData();
             }
             catch (System.Exception e)
             {
@@ -130,13 +133,10 @@ public class Level_Unlock : MonoBehaviour
 
     public void saveData()
     {
-        //PlayerPrefs.SetString("levelsCleared_count", levelsCleared.Count.ToString("D2"));
         PlayerPrefs.SetString("isWon_count", isWon.Count.ToString("D2"));
 
         for (int i = 0; i < isWon.Count; i++)
         {
-            //PlayerPrefs.SetString("levelsCleared_" + i, levelsCleared[i].ToString("D2"));
-
             if (isWon[i])
             {
                 PlayerPrefs.SetString("isWon_count" + i.ToString("D2"), 1.ToString("D2"));
@@ -148,21 +148,42 @@ public class Level_Unlock : MonoBehaviour
         }
 
         PlayerPrefs.Save();
+    }
 
+    public void readData()
+    {
         string filename = Application.persistentDataPath + "/PlayerPrefs";
+        string[] filetext = null;
+
+
         try
         {
-            string content = File.ReadAllText(filename);
-            string[] filetext = File.ReadAllLines(filename);
-            Debug.Log("file read: " + content);
+            filetext = File.ReadAllLines(filename);
             int info = 0;
-            string numinfo = "";
+            string numinfo = null;
+
+
+            Debug.Log("data read");
+
+
             for (int i = 0; i < filetext.Length; i++)
             {
-
-                numinfo = filetext[i].Substring(filetext[i].Length - 2,2);
+                numinfo = filetext[i].Substring(filetext[i].Length - 2, 2);
                 int.TryParse(numinfo, out info);
                 Debug.Log(filetext[i] + "||" + info);
+
+                if(info == 1)
+                {
+                    isWon.Add(true);
+                }
+                else
+                {
+                    isWon.Add(false);
+                }
+            }
+            for (int i = 0; i < isWon.Count; i++)
+            {
+                isWon[i] = true;
             }
         }
         catch (System.IO.IsolatedStorage.IsolatedStorageException e)
