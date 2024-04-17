@@ -166,7 +166,7 @@ public class Level_Unlock : MonoBehaviour
             Debug.Log("data read");
 
 
-            for (int i = 0; i < filetext.Length; i++)
+            for (int i = 0; i < filetext.Length - 1; i++)
             {
                 numinfo = filetext[i].Substring(filetext[i].Length - 2, 2);
                 int.TryParse(numinfo, out info);
@@ -180,10 +180,8 @@ public class Level_Unlock : MonoBehaviour
                 {
                     isWon.Add(false);
                 }
-            }
-            for (int i = 0; i < isWon.Count; i++)
-            {
-                isWon[i] = true;
+
+                levelsCleared.Add(i + 1);
             }
         }
         catch (System.IO.IsolatedStorage.IsolatedStorageException e)
