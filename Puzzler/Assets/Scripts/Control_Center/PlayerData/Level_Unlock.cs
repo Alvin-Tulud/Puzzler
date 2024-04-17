@@ -12,7 +12,7 @@ public class Level_Unlock : MonoBehaviour
     public static Level_Unlock Instance;
 
     public List<bool> isWon = new List<bool>();
-    private List<int> levelsCleared = new List<int>();
+    public List<int> levelsCleared = new List<int>();
     private List<GameObject> levelButtons = new List<GameObject>();
     //maybe do a dictionary or something
 
@@ -61,6 +61,7 @@ public class Level_Unlock : MonoBehaviour
                 }
 
                 saveData();
+                readData();
             }
             catch (System.Exception e)
             {
