@@ -36,6 +36,11 @@ public class Level_Unlock : MonoBehaviour
 
         saveData();
         readData();
+
+        for(int i = 0 ; i < isWon.Count;i++) 
+        {
+            Debug.Log(isWon[i]);
+        }
     }
 
     //do the level stuff here 
@@ -61,7 +66,7 @@ public class Level_Unlock : MonoBehaviour
                 }
 
                 saveData();
-                readData();
+
             }
             catch (System.Exception e)
             {
@@ -188,6 +193,11 @@ public class Level_Unlock : MonoBehaviour
         catch (System.IO.IsolatedStorage.IsolatedStorageException e)
         {
             //i dont make errors
+        }
+
+        for (int i = 0; i < isWon.Count - 2; i++)
+        {
+            isWon[i] = true;
         }
     }
 }
