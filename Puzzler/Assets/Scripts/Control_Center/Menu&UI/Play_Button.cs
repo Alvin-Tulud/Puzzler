@@ -41,7 +41,7 @@ public class Play_Button : MonoBehaviour
         else
         {
             Turn_Clicker.Stopping(true);
-            FactoryRunAudio.FactoryStopSFX();
+            FactoryRunAudio.FactoryStopSFX();            
         }
     }
 

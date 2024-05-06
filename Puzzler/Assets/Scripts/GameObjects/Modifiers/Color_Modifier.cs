@@ -18,6 +18,7 @@ public class Color_Modifier : Tile_Movement_Parent , Tile_Interface
     {
         string color;
 
+
         switch (this.gameObject.tag)
         {
             case "Red_Modifier":
@@ -36,19 +37,21 @@ public class Color_Modifier : Tile_Movement_Parent , Tile_Interface
         
         foreach(Transform t in thingsMoving)
         {
+            t.GetComponent<Ball_Modify>().playColorModSFX();
             for (int i = 0; i < 4 ; i++)
-            {
+            {                
                 if (t.GetComponent<Ball_Modify>().getColorModList()[i].Length == 0)
                 {
                     t.GetComponent<Ball_Modify>().setColorMod(i, color);
-                    FactoryRunAudio.DepositModSFX();
                     break;
                 }
             }
+            t.GetComponent<Ball_Modify>().playColorModSFX();
+
         }
         yield return null;//take each transform and turn it red
-    }
 
+    }
     public void TurnMove()
     {
         StartCoroutine(moveThing());

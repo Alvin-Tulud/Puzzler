@@ -18,9 +18,12 @@ public class FactoryRunAudio : ScriptableObject
         RuntimeManager.PlayOneShot("event:/SFX/FactoryRun/FactoryStop");
     }
 
-    public static void DepositModSFX()
+    public static void DepositModSFX(int depositLevel)
     {
-        RuntimeManager.PlayOneShot("event:/SFX/FactoryRun/DepositMod");
+        var depositInstance = RuntimeManager.CreateInstance("event:/SFX/FactoryRun/DepositMod");
+        depositInstance.setParameterByName("depositLevel",depositLevel);
+        depositInstance.start();
+        depositInstance.release();
     }
 
 
