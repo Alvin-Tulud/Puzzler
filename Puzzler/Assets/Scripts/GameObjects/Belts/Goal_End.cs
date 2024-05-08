@@ -31,12 +31,14 @@ public class Goal_End : MonoBehaviour, Tile_Interface
                 if (collision.GetComponent<Ball_Modify>().getColorModList()[i] != Goal_Colors[i])
                 {
                     isRight = false;
+                    FactoryRunAudio.GoalReject();
                     break;
                 }
             }
             if (isRight)
             {
                 checkBalls.Add(true);
+                FactoryRunAudio.GoalSuccess();
             }
             else
             {
@@ -60,10 +62,13 @@ public class Goal_End : MonoBehaviour, Tile_Interface
                 }
                 else
                 {
+
                     return true;
+
                 }
             }
         }
+
         return false;
     }
 

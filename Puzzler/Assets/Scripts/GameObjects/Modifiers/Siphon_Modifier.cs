@@ -20,10 +20,17 @@ public class Siphon_Modifier : Tile_Movement_Parent, Tile_Interface
         {
             for (int i = 3; i >= 0; i--)
             {
+                
                 if (t.GetComponent<Ball_Modify>().getColorModList()[i].Length != 0)
                 {
+                    FactoryRunAudio.SiphonModSFX(0);
                     t.GetComponent<Ball_Modify>().setColorMod(i, "");
                     break;
+                }
+                else
+                {
+                    FactoryRunAudio.SiphonModSFX(1);
+
                 }
             }
         }

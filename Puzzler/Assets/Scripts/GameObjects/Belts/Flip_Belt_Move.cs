@@ -25,10 +25,11 @@ public class Flip_Belt_Move : Tile_Movement_Parent, Tile_Interface
     public void TurnEffect() //Belts have no effect
     {
         transformBelt.RotateAround(transform.position, Vector3.forward, 180);
+        FactoryRunAudio.FlipSwitchTileSFX();
 
         //flip-flop correctPosition to be true or false every time the belt flips
         //correctPosition will be used to flip the belts back to their original position after test phase
-        if(correctPosition == true)
+        if (correctPosition == true)
         {
             correctPosition = false;
         }

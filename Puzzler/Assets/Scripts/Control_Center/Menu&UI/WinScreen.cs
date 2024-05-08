@@ -57,7 +57,7 @@ public class WinScreen : MonoBehaviour
 
         if (player_win)//win screen if they win
         {
-            foreach(GameObject g in screen)
+            foreach (GameObject g in screen)
             {
                 g.SetActive(true);
             }
