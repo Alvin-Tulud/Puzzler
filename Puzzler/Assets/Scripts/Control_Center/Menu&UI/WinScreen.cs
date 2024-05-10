@@ -57,12 +57,19 @@ public class WinScreen : MonoBehaviour
 
         if (player_win)//win screen if they win
         {
-            foreach (GameObject g in screen)
-            {
-                g.SetActive(true);
-            }
+            StartCoroutine(winPause());
         }
     }
 
     public bool playerWon() { return player_win; }
+
+    IEnumerator winPause()
+    {
+        yield return new WaitForSeconds(1);
+
+        foreach (GameObject g in screen)
+        {
+            g.SetActive(true);
+        }
+    }
 }

@@ -40,6 +40,9 @@ public class Draggable : MonoBehaviour
                 g.transform.SetParent(transform, false);//Alvin: changed transform.position to vector3.zero because it wasn't instantiating in the middle of the draggable object
                 g.transform.position = Vector3.zero;
                 DragTarget = g;
+
+                LastValidPosition = transform.position;
+
                 g = Instantiate(SpawnTargetChecker, transform.position, transform.rotation); //Creates TargetChecker
                 g.transform.SetParent(transform, false);
                 g.transform.position = Vector3.zero;
