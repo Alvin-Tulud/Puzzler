@@ -18,7 +18,7 @@ public class Flip_Modifier : Tile_Movement_Parent, Tile_Interface
     {//flip the array but also keep it in the same place
         foreach(Transform t in thingsMoving)
         {
-            FactoryRunAudio.FlipSwitchTileSFX();
+            FactoryRunAudio.RotateTileSFX();
             List<string> tempColorsList = t.GetComponent<Ball_Modify>().getColorModList();
             tempColorsList.Reverse();
             for (int i = 0; i < tempColorsList.Count - 1; i++)
