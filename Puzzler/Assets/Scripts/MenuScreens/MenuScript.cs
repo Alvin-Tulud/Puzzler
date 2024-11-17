@@ -6,6 +6,11 @@ using UnityEngine.SceneManagement;
 //This entire script is mostly used to switch between scenes, and serves as a scene manager of sorts.
 public class menuScreen : MonoBehaviour
 {
+    static bool hasPlayed = false;
+    private void Start()
+    {
+        if (!hasPlayed) { FactoryRunAudio.StartMusic(); hasPlayed = true; }
+    }
     public void goToGameSelect(int world)
     {
         //This method will switch the current scene to the game selection screen.

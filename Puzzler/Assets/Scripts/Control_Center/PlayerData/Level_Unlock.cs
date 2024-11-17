@@ -164,7 +164,7 @@ public class Level_Unlock : MonoBehaviour
 
         try
         {
-            filetext = File.ReadAllLines(filename);
+            filetext = File.ReadAllLines(filename); 
             int info = 0;
             string numinfo = null;
 

@@ -55,6 +55,10 @@ public class FactoryRunAudio : ScriptableObject
         RuntimeManager.PlayOneShot("event:/SFX/FactoryRun/RotateTile");
     }
 
+    public static void StartMusic()
+    {
+        RuntimeManager.PlayOneShot("event:/MUSIC/Music01");
+    }
 
 
 
