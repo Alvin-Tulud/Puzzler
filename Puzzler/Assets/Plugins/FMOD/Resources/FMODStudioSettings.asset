@@ -1,5 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+<<<<<<< Updated upstream
 --- !u!114 &-8449360212614927705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,6 +269,8 @@ MonoBehaviour:
   codecChannels:
     Value: []
     HasValue: 0
+=======
+>>>>>>> Stashed changes
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,10 +284,17 @@ MonoBehaviour:
   m_Name: FMODStudioSettings
   m_EditorClassIdentifier: 
   switchSettingsMigration: 1
+<<<<<<< Updated upstream
   HasSourceProject: 0
   HasPlatforms: 1
   sourceProjectPath: 
   sourceBankPath: Assets/Audio/Banks
+=======
+  HasSourceProject: 1
+  HasPlatforms: 1
+  sourceProjectPath: 
+  sourceBankPath: 
+>>>>>>> Stashed changes
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
@@ -305,8 +315,12 @@ MonoBehaviour:
   VirtualChannelSettings: []
   RealChannelSettings: []
   Plugins: []
+<<<<<<< Updated upstream
   MasterBanks:
   - Master
+=======
+  MasterBanks: []
+>>>>>>> Stashed changes
   Banks: []
   BanksToLoad: []
   LiveUpdatePort: 9264
@@ -320,9 +334,10 @@ MonoBehaviour:
   SharedLibraryUpdateStage: 0
   SharedLibraryTimeSinceStart: 0
   CurrentVersion: 131605
-  HideSetupWizard: 1
+  HideSetupWizard: 0
   LastEventReferenceScanVersion: 131605
   Platforms:
+<<<<<<< Updated upstream
   - {fileID: 8862599387761789016}
   - {fileID: 607301155660488074}
   - {fileID: 4935248782957748925}
@@ -813,3 +828,17 @@ MonoBehaviour:
   codecChannels:
     Value: []
     HasValue: 0
+=======
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  MigratedPlatforms: 09000000150000000b0000000c000000050000000600000008000000120000000a0000000200000001000000
+>>>>>>> Stashed changes
