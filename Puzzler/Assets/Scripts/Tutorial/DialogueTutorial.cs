@@ -7,27 +7,33 @@ using Ink.Runtime;
 
 public class DialogueTutorial : MonoBehaviour
 {
-    public GameObject textbox;
-    public TextMeshProUGUI actualText;
+    public GameObject textbox; //tangible text box element
+    public TextMeshProUGUI actualText; //tangible text element
 
-    private Story thisStory;
-    private bool isPlaying;
+    private Story thisStory; //current story we will play
+    private bool isPlaying; //whether or not the story is playing yet
 
-    public GameObject[] dialogueChoices;
-    public TextMeshProUGUI[] choicetexts;
+    public GameObject[] dialogueChoices; //two boxes which contain the text of the choices
+    public TextMeshProUGUI[] choicetexts; //two tangible text elements to display the options
 
-    private float displaySpeed = 0.03f;
-    private Coroutine existCheck;
-    private bool lineFinish = true;
+    private float displaySpeed = 0.03f; //speed at which the text will scroll
+    private Coroutine existCheck; //checks if the coroutine exists
+    public bool lineFinish = true; //whether or not the line has finished printing
 
-    private bool writing = false;
+    private bool writing = false; 
     private bool done = true;
 
+    private GameObject textManager;
 
-    // Start is called before the first frame update
-    void Start()
+
+    private bool oneClick = false;
+
+    // Start will find the dialogue manager and set it to be playing.
+    //will make all items invisible from the start.
+    void Start() 
     {
-        isPlaying = false;
+        textManager = GameObject.Find("dialogueManager");
+        isPlaying = false; 
         textbox.SetActive(false);
 
         for (int i = 0; i < choicetexts.Length; i++)
@@ -44,11 +50,8 @@ public class DialogueTutorial : MonoBehaviour
             return;
         }
 
-        if (done == true && Input.GetMouseButton(0))//    Input.GetKeyDown(KeyCode.E))
+        if (Input.GetMouseButton(0))
         {
-            Debug.Log("ENTERED NEW SECTION");
-            done = false;
-            writing = true;
             if (lineFinish)
             {
                 if (thisStory.canContinue)
@@ -72,10 +75,9 @@ public class DialogueTutorial : MonoBehaviour
                     actualText.text = "";
                 }
             }
-            writing = false;
-            done = true;
-            Debug.Log("LEAVING SECTION");
         }
+
+        
     }
 
     public void enterDialogue(TextAsset textInput)
@@ -102,11 +104,14 @@ public class DialogueTutorial : MonoBehaviour
             }
             else
             {
+                Debug.Log("SOTRY IS FINISHED");
                 isPlaying = false;
                 textbox.SetActive(false);
                 actualText.text = "";
+                
             }
         }
+        
     }
 
     private void setSpeed(string lineInput)
@@ -128,8 +133,8 @@ public class DialogueTutorial : MonoBehaviour
 
     private IEnumerator printLine(string lineInput)
     {
-        writing = true;
-        done = false;
+        //writing = true;
+        //done = false;
 
         //set the displayed text to be empty
         actualText.text = "";
@@ -142,26 +147,21 @@ public class DialogueTutorial : MonoBehaviour
         //show the text one letter at a time
         foreach (char letter in lineInput.ToCharArray())
         {
-            if (Input.GetKeyDown(KeyCode.E) && writing == true)
+
+            if (Input.GetMouseButton(1))
             {
-                Debug.Log("SPEED UP NOW");
                 actualText.text = lineInput;
-                writing = false;
-                done = true;
-                Debug.Log("finished speeding up");
                 break;
             }
 
-            actualText.text += letter;            
-
+            actualText.text += letter;
             yield return new WaitForSeconds(displaySpeed);
             
         }
 
-        Debug.Log("finished like normal");
+        //Debug.Log("finished like normal");
         lineFinish = true;
         done = true;
-
     }
 
 

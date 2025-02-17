@@ -9,6 +9,8 @@ public class dialogueclient : MonoBehaviour
 
     private GameObject textManager;
 
+    public bool storyStart = false;
+
     //private bool storyEnd = false;
 
     // Start is called before the first frame update
@@ -20,14 +22,19 @@ public class dialogueclient : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        //if (storyStart == false)
         {
-            //Debug.Log("START STORY");
-            //storyEnd = true;
-            //Debug.Log("LOCKED STORY");
-            textManager.GetComponent<DialogueTutorial>().enterDialogue(tutorialInk);
-            //storyEnd = false;
-            //Debug.Log("END STORY");
+            if (Input.GetKeyDown(KeyCode.Q)) //when pressing q, story will start
+            {
+                storyStart = true;
+                textManager.GetComponent<DialogueTutorial>().enterDialogue(tutorialInk); //tells the other script to enter with the tutorial ink story file.
+            }
         }
+    }
+
+
+    public void storySetter()
+    {
+        storyStart = false;
     }
 }
