@@ -8,6 +8,12 @@ using Ink.Runtime;
 public class DialogueTutorial : MonoBehaviour
 {
     public GameObject textbox; //tangible text box element
+
+    //Arrows to be displayed in tandem with the dialogue
+    public GameObject arrow1, arrow2, arrow3, arrow4, arrow5, arrow6, arrow7, arrow8, arrow9, arrow10;
+    public GameObject resetButton, exitButton;
+    public GameObject hekks1, hekks2, hekks3;
+
     public TextMeshProUGUI actualText; //tangible text element
 
     private Story thisStory; //current story we will play
@@ -20,7 +26,7 @@ public class DialogueTutorial : MonoBehaviour
     private Coroutine existCheck; //checks if the coroutine exists
     public bool lineFinish = true; //whether or not the line has finished printing
 
-    private bool writing = false; 
+    private bool writing = false;
     private bool done = true;
 
     private GameObject textManager;
@@ -30,11 +36,27 @@ public class DialogueTutorial : MonoBehaviour
 
     // Start will find the dialogue manager and set it to be playing.
     //will make all items invisible from the start.
-    void Start() 
+    void Start()
     {
         textManager = GameObject.Find("dialogueManager");
-        isPlaying = false; 
+        isPlaying = false;
         textbox.SetActive(false);
+        arrow1.SetActive(false);
+        arrow2.SetActive(false);
+        arrow3.SetActive(false);
+        arrow4.SetActive(false);
+        arrow5.SetActive(false);
+        arrow6.SetActive(false);
+        arrow7.SetActive(false);
+        arrow8.SetActive(false);
+        arrow9.SetActive(false);
+        arrow10.SetActive(false);
+
+        resetButton.SetActive(false);
+        exitButton.SetActive(false);
+
+        hekks2.SetActive(false);
+        hekks3.SetActive(false);
 
         for (int i = 0; i < choicetexts.Length; i++)
         {
@@ -77,7 +99,7 @@ public class DialogueTutorial : MonoBehaviour
             }
         }
 
-        
+
     }
 
     public void enterDialogue(TextAsset textInput)
@@ -108,10 +130,10 @@ public class DialogueTutorial : MonoBehaviour
                 isPlaying = false;
                 textbox.SetActive(false);
                 actualText.text = "";
-                
+
             }
         }
-        
+
     }
 
     private void setSpeed(string lineInput)
@@ -141,6 +163,124 @@ public class DialogueTutorial : MonoBehaviour
 
         //set the speed of the text
         setSpeed(lineInput);
+
+        //this is the section of swaps for all of the hekks emotes:
+        if (lineInput.Contains("I would've believed you if you weren't wearing an ")
+            || lineInput.Contains("like I'll be the one giving you the training")
+            || lineInput.Contains("That's where you come in")
+            || lineInput.Contains("got me here to teach you the ropes after")
+            || lineInput.Contains("you can find me in the top right corner of the screen!")
+            || lineInput.Contains("Anyways, that should cover most of the basics for ya")
+            )
+        {
+            hekks3.SetActive(true);
+            hekks1.SetActive(false);
+        }
+        else
+        {
+            hekks1.SetActive(true);
+            hekks3.SetActive(false);
+        }
+
+
+        if (lineInput.Contains("It'd be a great day to go fishing")
+            || lineInput.Contains("t's an awful lot of work for me to do myself though")
+            )
+        {
+            hekks2.SetActive(true);
+            hekks1.SetActive(false);
+        }
+        else
+        {
+            hekks1.SetActive(true);
+            hekks2.SetActive(false);
+        }
+
+
+
+        //this is the section of swaps for all the arrows showing up:
+
+        if (lineInput.Contains("you can find me in the top right corner"))
+        {
+            arrow1.SetActive(true);
+        }
+        else
+        {
+            arrow1.SetActive(false);
+        }
+
+
+        if (lineInput.Contains("exit to the menu with the red button"))
+        {
+            arrow2.SetActive(true);
+            arrow3.SetActive(true);
+            resetButton.SetActive(true);
+            exitButton.SetActive(true);
+        }
+        else
+        {
+
+            arrow2.SetActive(false);
+            arrow3.SetActive(false);
+            resetButton.SetActive(false);
+            exitButton.SetActive(false);
+        }
+
+        if (lineInput.Contains("you can see the current recipe we will"))
+        {
+            arrow4.SetActive(true);
+        }
+        else
+        {
+            arrow4.SetActive(false);
+        }
+
+        if (lineInput.Contains("smack that big green button to start testing"))
+        {
+            arrow5.SetActive(true);
+        }
+        else
+        {
+            arrow5.SetActive(false);
+        }
+
+        if (lineInput.Contains("giant unending grey void is where"))
+        { 
+            arrow6.SetActive(true);
+        }
+        else
+        {
+            arrow6.SetActive(false);
+        }
+
+        if (lineInput.Contains("These will fill up the flask"))
+        { 
+            arrow7.SetActive(true);
+            arrow8.SetActive(true);
+        }
+        else
+        {
+            arrow7.SetActive(false);
+            arrow8.SetActive(false);
+        }
+
+        if (lineInput.Contains("red trash can icon"))
+        {
+            arrow9.SetActive(true);
+        }
+        else
+        {
+            arrow9.SetActive(false);
+        }
+
+        if (lineInput.Contains("drag it back into that grey void"))
+        {
+            arrow10.SetActive(true);
+        }
+        else
+        {
+            arrow10.SetActive(false);
+        }
 
         lineFinish = false;
 
