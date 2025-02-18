@@ -18,6 +18,11 @@ public class menuScreen : MonoBehaviour
 
     }
 
+    public void goToTutorial()
+    {
+        SceneManager.LoadScene(58);
+    }
+
     public void goToCredits()
     {
         //This method will switch the current scene to the credits scene.
