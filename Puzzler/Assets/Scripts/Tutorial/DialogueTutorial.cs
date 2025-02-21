@@ -10,6 +10,8 @@ public class DialogueTutorial : MonoBehaviour
     public GameObject textbox; //tangible text box element
 
     //Arrows to be displayed in tandem with the dialogue
+
+    //CHANGE THIS TO A LIST OR ARRAY
     public GameObject arrow1, arrow2, arrow3, arrow4, arrow5, arrow6, arrow7, arrow8, arrow9, arrow10;
     public GameObject resetButton, exitButton;
     public GameObject hekks1, hekks2, hekks3;
@@ -41,6 +43,7 @@ public class DialogueTutorial : MonoBehaviour
         textManager = GameObject.Find("dialogueManager");
         isPlaying = false;
         textbox.SetActive(false);
+        //ONCE YOU GET THE LIST USE A FOREACH TO GO THROUGH EACH ELEMENT
         arrow1.SetActive(false);
         arrow2.SetActive(false);
         arrow3.SetActive(false);
@@ -72,7 +75,7 @@ public class DialogueTutorial : MonoBehaviour
             return;
         }
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
             if (lineFinish)
             {
