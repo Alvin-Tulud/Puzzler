@@ -17,6 +17,8 @@ public class dialogueclient : MonoBehaviour
     void Start()
     {
         textManager = GameObject.Find("dialogueManager");
+        storyStart = true;
+        textManager.GetComponent<DialogueTutorial>().enterDialogue(tutorialInk); //tells the other script to enter with the tutorial ink story file.
     }
 
     // Update is called once per frame
