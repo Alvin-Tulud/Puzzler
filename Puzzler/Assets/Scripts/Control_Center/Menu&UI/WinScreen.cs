@@ -6,6 +6,7 @@ public class WinScreen : MonoBehaviour
 {
     private GameObject[] goals;
     public GameObject[] screen;
+    public GameObject hekks1, hekks2;
 
     private bool ready_to_check;
     private bool player_win;
@@ -21,6 +22,13 @@ public class WinScreen : MonoBehaviour
 
         ready_to_check = false;
         player_win = false;
+
+        hekks1 = GameObject.Find("hekksNeutral");
+        hekks2 = GameObject.Find("hekksWink");
+
+
+        hekks1.SetActive(true);
+        hekks2.SetActive(false);
     }
 
     // Update is called once per frame
@@ -51,6 +59,8 @@ public class WinScreen : MonoBehaviour
                 else
                 {
                     player_win = true;
+                    hekks1.SetActive(false);
+                    hekks2.SetActive(true);
                 }
             }
         }
@@ -66,6 +76,9 @@ public class WinScreen : MonoBehaviour
     IEnumerator winPause()
     {
         yield return new WaitForSeconds(1);
+
+        hekks1.SetActive(true);
+        hekks2.SetActive(false);
 
         foreach (GameObject g in screen)
         {
