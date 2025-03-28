@@ -75,7 +75,7 @@ public class DialogueTutorial : MonoBehaviour
             return;
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (thisStory.currentChoices.Count == 0 && Input.GetMouseButtonDown(0))
         {
             if (lineFinish)
             {
@@ -342,6 +342,7 @@ public class DialogueTutorial : MonoBehaviour
     public void chosenOpt(int choiceNum)
     {
         thisStory.ChooseChoiceIndex(choiceNum);
+        thisStory.Continue();
     }
 
 }
