@@ -16,6 +16,8 @@ public class DialogueTutorial : MonoBehaviour
     public GameObject resetButton, exitButton;
     public GameObject hekks1, hekks2, hekks3;
 
+    public GameObject tint, flask, startB, trashB, blue, red, greyVoid, flaskDisplay;
+
     public TextMeshProUGUI actualText; //tangible text element
 
     private Story thisStory; //current story we will play
@@ -60,6 +62,15 @@ public class DialogueTutorial : MonoBehaviour
 
         hekks2.SetActive(false);
         hekks3.SetActive(false);
+
+        tint.SetActive(false);
+        greyVoid.SetActive(false);
+        flaskDisplay.SetActive(false);
+        flask.SetActive(false);
+        startB.SetActive(false);
+        trashB.SetActive(false);
+        blue.SetActive(false);
+        red.SetActive(false);
 
         for (int i = 0; i < choicetexts.Length; i++)
         {
@@ -143,15 +154,15 @@ public class DialogueTutorial : MonoBehaviour
     {
         if (lineInput.Length > 100)
         {
-            displaySpeed = 0.02f;
+            displaySpeed = 0.005f;
         }
         else if (lineInput.Length <= 100 && lineInput.Length > 50)
         {
-            displaySpeed = 0.022f;
+            displaySpeed = 0.008f;
         }
         else
         {
-            displaySpeed = 0.025f;
+            displaySpeed = 0.015f;
         }
     }
 
@@ -222,7 +233,6 @@ public class DialogueTutorial : MonoBehaviour
         }
         else
         {
-
             arrow2.SetActive(false);
             arrow3.SetActive(false);
             resetButton.SetActive(false);
@@ -231,48 +241,62 @@ public class DialogueTutorial : MonoBehaviour
 
         if (lineInput.Contains("you can see the current recipe we will"))
         {
+            flaskDisplay.SetActive(true);
+            flask.SetActive(true);
             arrow4.SetActive(true);
         }
         else
         {
+            flaskDisplay.SetActive(false);
+            flask.SetActive(false);
             arrow4.SetActive(false);
         }
 
         if (lineInput.Contains("smack that big green button to start testing"))
         {
+            startB.SetActive(true);
             arrow5.SetActive(true);
         }
         else
         {
+            startB.SetActive(false);
             arrow5.SetActive(false);
         }
 
         if (lineInput.Contains("giant unending grey void is where"))
-        { 
+        {
+            greyVoid.SetActive(true);
             arrow6.SetActive(true);
         }
         else
         {
+            greyVoid.SetActive(false);
             arrow6.SetActive(false);
         }
 
         if (lineInput.Contains("These will fill up the flask"))
-        { 
+        {
+            blue.SetActive(true);
+            red.SetActive(true);
             arrow7.SetActive(true);
             arrow8.SetActive(true);
         }
         else
         {
+            blue.SetActive(false);
+            red.SetActive(false);
             arrow7.SetActive(false);
             arrow8.SetActive(false);
         }
 
         if (lineInput.Contains("red trash can icon"))
         {
+            trashB.SetActive(true);
             arrow9.SetActive(true);
         }
         else
         {
+            trashB.SetActive(false);
             arrow9.SetActive(false);
         }
 
@@ -284,6 +308,24 @@ public class DialogueTutorial : MonoBehaviour
         {
             arrow10.SetActive(false);
         }
+
+        if (lineInput.Contains("drag it back into that grey void")
+            || lineInput.Contains("red trash can icon")
+            || lineInput.Contains("These will fill up the flask")
+            || lineInput.Contains("giant unending grey void is where")
+            || lineInput.Contains("smack that big green button to start testing")
+            || lineInput.Contains("you can see the current recipe we will")
+            || lineInput.Contains("exit to the menu with the red button")
+            || lineInput.Contains("you can find me in the top right corner"))
+        {
+            tint.SetActive(true);
+        }
+        else
+        {
+            tint.SetActive(false);
+        }
+
+
 
         lineFinish = false;
 
