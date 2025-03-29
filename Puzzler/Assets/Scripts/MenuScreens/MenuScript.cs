@@ -57,7 +57,11 @@ public class menuScreen : MonoBehaviour
 
     public void nextScene()
     {
-        if (SceneManager.GetActiveScene().buildIndex + 1 < SceneManager.sceneCountInBuildSettings && (SceneManager.GetActiveScene().buildIndex - 9) % 16 != 0)
+        if (SceneManager.GetActiveScene().buildIndex == 58)//if at tutorial go to level 1 after
+        {
+            SceneManager.LoadScene(10);
+        }
+        else if (SceneManager.GetActiveScene().buildIndex + 1 < SceneManager.sceneCountInBuildSettings && (SceneManager.GetActiveScene().buildIndex - 9) % 16 != 0)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
