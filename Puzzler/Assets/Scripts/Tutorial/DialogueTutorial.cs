@@ -333,10 +333,10 @@ public class DialogueTutorial : MonoBehaviour
         foreach (char letter in lineInput.ToCharArray())
         {
 
-            if (Input.GetMouseButton(1))
+            //if (Input.GetMouseButton(1))
             {
-                actualText.text = lineInput;
-                break;
+                //actualText.text = lineInput;
+                //break;
             }
 
             actualText.text += letter;

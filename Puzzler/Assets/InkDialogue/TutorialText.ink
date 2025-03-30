@@ -4,27 +4,27 @@
 
 Heyyy~~~!
 
-Looks like you're the new hire they sent over, am I right?
+Looks like you're the new hire they sent over.
 
     
-    + Yeah
-        -> funny1
-    + Nah, thats not me.
-        -> funny2
+    //+ Yeah
+        //-> funny1
+    //+ Nah, thats not me.
+        //-> funny2
     
-===funny1===
-Great! Looks like I'll be the one giving you the training for today!
+//===funny1===
+//Great! Looks like I'll be the one giving you the training for today!
 
-->second
+//->second
 
 
 
-===funny2===
-You're pretty funny! I would've believed you if you weren't wearing an employee badge right now, hehe
+//===funny2===
+//You're pretty funny! I would've believed you if you weren't wearing an employee badge right now, hehe
 
-->second
+//->second
 
-===second===
+//===second===
 My name's Hekks! Hekks T. Belle.
 
 I've been tasked by the overseers to go around, fixing some of these factories up so we can use em, instead of demolishing em to build parking lots and whatever..
@@ -56,12 +56,7 @@ Oh damn I almost forgot, the left side of the device.. That's pretty important..
 
 That giant unending grey void is where you get your tiles from.
 
-they uh
-
-you know
-
-get that flask moving around the map!
-
+they get that flask moving around the map
 
 When you click on a tile, you can press the R key or the right mouse button to rotate it.
 

@@ -26,10 +26,10 @@ public class dialogueclient : MonoBehaviour
     {
         //if (storyStart == false)
         {
-            if (Input.GetKeyDown(KeyCode.Q)) //when pressing q, story will start
+            //if (Input.GetKeyDown(KeyCode.Q)) //when pressing q, story will start
             {
-                storyStart = true;
-                textManager.GetComponent<DialogueTutorial>().enterDialogue(tutorialInk); //tells the other script to enter with the tutorial ink story file.
+                //storyStart = true;
+                //textManager.GetComponent<DialogueTutorial>().enterDialogue(tutorialInk); //tells the other script to enter with the tutorial ink story file.
             }
         }
     }
