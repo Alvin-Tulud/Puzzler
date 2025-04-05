@@ -56,7 +56,7 @@ Oh damn I almost forgot, the left side of the device.. That's pretty important..
 
 That giant unending grey void is where you get your tiles from.
 
-they get that flask moving around the map
+Tiles get that flask moving around the map!
 
 When you click on a tile, you can press the R key or the right mouse button to rotate it.
 
