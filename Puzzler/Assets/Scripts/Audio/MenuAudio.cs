@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class MenuAudio : ScriptableObject
 {
+
     // ex of non-oneshot event call; can adjust parameters this way
     /*
    public bool playMusic;
