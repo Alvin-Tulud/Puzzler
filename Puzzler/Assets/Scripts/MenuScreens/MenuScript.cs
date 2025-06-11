@@ -9,32 +9,33 @@ public class menuScreen : MonoBehaviour
     static bool hasPlayed = false;
     private void Start()
     {
-        if (!hasPlayed) { FactoryRunAudio.StartMusic(); hasPlayed = true; }
     }
     public void goToGameSelect(int world)
     {
         //This method will switch the current scene to the game selection screen.
         SceneManager.LoadScene(world);
+        if (!hasPlayed) { FactoryRunAudio.StartMusic(); hasPlayed = true; }
 
     }
 
     public void goToTutorial()
     {
         SceneManager.LoadScene(58);
+        if (!hasPlayed) { FactoryRunAudio.StartMusic(); hasPlayed = true; }
     }
 
     public void goToCredits()
     {
         //This method will switch the current scene to the credits scene.
         SceneManager.LoadScene(8);
-
+        if (!hasPlayed) { FactoryRunAudio.StartMusic(); hasPlayed = true; }
     }
 
     public void goToControls()
     {
         //This method will switch the current scene to the controls scene.
         SceneManager.LoadScene(9);
-        
+        if (!hasPlayed) { FactoryRunAudio.StartMusic(); hasPlayed = true; }
     }
 
     public void goBackMenu()
